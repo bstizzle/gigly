@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_01_212236) do
+ActiveRecord::Schema.define(version: 2020_12_01_221630) do
 
-  create_table "artist_specialities", force: :cascade do |t|
+  create_table "artist_specialties", force: :cascade do |t|
     t.integer "artist_id", null: false
     t.integer "speciality_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["artist_id"], name: "index_artist_specialities_on_artist_id"
-    t.index ["speciality_id"], name: "index_artist_specialities_on_speciality_id"
+    t.index ["artist_id"], name: "index_artist_specialties_on_artist_id"
+    t.index ["speciality_id"], name: "index_artist_specialties_on_speciality_id"
   end
 
   create_table "artists", force: :cascade do |t|
@@ -65,14 +65,14 @@ ActiveRecord::Schema.define(version: 2020_12_01_212236) do
     t.index ["creator_id"], name: "index_projects_on_creator_id"
   end
 
-  create_table "specialities", force: :cascade do |t|
+  create_table "specialties", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "artist_specialities", "artists"
-  add_foreign_key "artist_specialities", "specialities"
+  add_foreign_key "artist_specialties", "artists"
+  add_foreign_key "artist_specialties", "specialities"
   add_foreign_key "project_artists", "artists"
   add_foreign_key "project_artists", "projects"
   add_foreign_key "projects", "creators"
