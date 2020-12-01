@@ -1,0 +1,2 @@
+class ProjectArtist < ApplicationRecord
+end
