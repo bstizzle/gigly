@@ -1,2 +1,4 @@
 class ArtistSpecialitiesController < ApplicationController
+
+    
 end
