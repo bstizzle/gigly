@@ -3,7 +3,7 @@ class CreatorsController < ApplicationController
     before_action :find_creator, only: [:show, :edit, :update, :destroy]
 
     def index
-        @creators = Creators.all
+        @creators = Creator.all
     end 
 
     def show 
