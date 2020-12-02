@@ -14,11 +14,11 @@ ActiveRecord::Schema.define(version: 2020_12_01_221630) do
 
   create_table "artist_specialties", force: :cascade do |t|
     t.integer "artist_id", null: false
-    t.integer "speciality_id", null: false
+    t.integer "specialty_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["artist_id"], name: "index_artist_specialties_on_artist_id"
-    t.index ["speciality_id"], name: "index_artist_specialties_on_speciality_id"
+    t.index ["specialty_id"], name: "index_artist_specialties_on_specialty_id"
   end
 
   create_table "artists", force: :cascade do |t|
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_221630) do
   create_table "project_artists", force: :cascade do |t|
     t.integer "project_id", null: false
     t.integer "artist_id", null: false
-    t.string "accepted"
+    t.string "accepted", default: "pending"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["artist_id"], name: "index_project_artists_on_artist_id"
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_221630) do
   end
 
   add_foreign_key "artist_specialties", "artists"
-  add_foreign_key "artist_specialties", "specialities"
+  add_foreign_key "artist_specialties", "specialties"
   add_foreign_key "project_artists", "artists"
   add_foreign_key "project_artists", "projects"
   add_foreign_key "projects", "creators"

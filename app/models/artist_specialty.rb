@@ -1,4 +1,4 @@
 class ArtistSpecialty < ApplicationRecord
   belongs_to :artist
-  belongs_to :speciality
+  belongs_to :specialty
 end
