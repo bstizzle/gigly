@@ -1,6 +1,8 @@
 <div class="form-container">
 
-  <%= form_for :session, url: login_path do |f| %>
+<%= render "shared/errors"%>
+
+  <%= form_for :session, url: creator_login_path do |f| %>
     <div class="form-input">
       <%= f.label :email %>
       <%= f.text_field :email %>

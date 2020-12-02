@@ -18,4 +18,3 @@ Still to do:
 4. Styling (CSS)
 
 Problems: 
-1. Carrying over @creator instances to create new projects and carrying over @project instances to create new project specialties. 

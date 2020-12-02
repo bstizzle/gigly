@@ -1,38 +1,37 @@
-class SessionController < ApplicationController
+class SessionsController < ApplicationController
+    skip_before_action :authorized_creator, only: [:new, :creator_login]
+    
     def new
     end
 
     def logout
-        cookies.delete(:login_id)
+        cookies.delete(:creator_id)
+        cookies.delete(:artist_id)
         redirect_to new_login_path
     end
 
-    def login
+    def creator_login
+        creator = Creator.find_by(email: params[:session][:email])
 
-        if Creator.find_by(email: params[:session][:email])
-            user = Creator.find_by(email: params[:session][:email])
-            if user && user.authenticate(params[:session][:password])
-                cookies[:login_id] = user.id
-                redirect_to creator_path(user)
-            else
-                flash[:errors] = "Username or Password does not match" 
-                redirect_to new_login_path
-            end 
-
-        elsif Artist.find_by(email: params[:session][:email])
-            user = Artist.find_by(email: params[:session][:email])
-            if user && user.authenticate(params[:session][:password])
-                cookies[:login_id] = user.id
-                redirect_to artist_path(user)
-            else
-                flash[:errors] = "Username or Password does not match" 
-                redirect_to new_login_path
-            end 
+        if creator && creator.authenticate(params[:session][:password])
+            cookies[:creator_id] = creator.id
+            redirect_to creator_path(creator)
         else
-            flash[:login_errors] = "No account with this email"
+            flash[:login_errors] = "Username or Password does not match" 
             redirect_to new_login_path
-        end
-
+        end 
     end 
 
+    def artist_login
+        artist = Artist.find_by(email: params[:session][:email])
+
+        if artist && artist.authenticate(params[:session][:password])
+            cookies[:artist_id] = artist.id
+            redirect_to artist_path(artist)
+        else
+            flash[:login_errors] = "Username or Password does not match" 
+            redirect_to new_login_path
+        end 
+    end 
+    
 end

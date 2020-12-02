@@ -1,7 +1,8 @@
 class CreatorsController < ApplicationController
 
     before_action :find_creator, only: [:show, :edit, :update, :destroy]
-
+    skip_before_action :authorized_creator, only: [:new, :create]
+    
     def index
         @creators = Creator.all
     end 
@@ -17,7 +18,7 @@ class CreatorsController < ApplicationController
         @creator = Creator.create(creator_params)
 
         if @creator.valid? 
-            cookies[:login_id] = @creator.id
+            cookies[:creator_id] = @creator.id
             redirect_to creator_path(@creator)
         else 
             flash[:creator_errors] = @creator.errors.full_messages
@@ -49,7 +50,7 @@ class CreatorsController < ApplicationController
     private
         
     def creator_params
-        params.require(:creator).permit(:first_name, :last_name, :email, :password_digest, :bio)
+        params.require(:creator).permit(:first_name, :last_name, :email, :password, :bio)
     end 
 
     def find_creator
