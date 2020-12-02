@@ -17,12 +17,12 @@ class CreatorsController < ApplicationController
         @creator = Creator.create(creator_params)
 
         if @creator.valid? 
+            cookies[:login_id] = @creator.id
             redirect_to creator_path(@creator)
         else 
             flash[:creator_errors] = @creator.errors.full_messages
             redirect_to new_creator_path
         end 
-
     end 
 
     def edit
@@ -38,7 +38,6 @@ class CreatorsController < ApplicationController
             flash[:errors] = @creator.errors.full_messages
             redirect_to new_creator_path
         end 
-
     end 
 
     def destroy

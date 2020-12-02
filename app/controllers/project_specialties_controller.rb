@@ -1,6 +1,8 @@
 class ProjectSpecialtiesController < ApplicationController
     def new
         @project_specialty = ProjectSpecialty.new
+        @projects = Project.all
+        @specialties = Specialty.all
     end
 
     def create

@@ -2,11 +2,11 @@
     <%= form_for @artist_specialty do |f| %>
         <div class="form-input">
             <label>Select Yourself</label>
-            <%= f.collection_select(:artist_id, Artist.all, :id, :email) %>
+            <%= f.collection_select(:artist_id, @artists, :id, :email) %>
         </div>
         <div class="form-input">
             <label>Select Specialties</label>
-            <%= f.collection_select(:specialty_id, Specialty.all, :id, :name, {}, {:multiple => true}) %>
+            <%= f.collection_select(:specialty_id, @specialties, :id, :name, {}, {:multiple => true}) %>
         </div>
 
         <%= f.submit %>

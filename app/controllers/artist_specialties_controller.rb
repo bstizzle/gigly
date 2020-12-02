@@ -1,6 +1,8 @@
 class ArtistSpecialtiesController < ApplicationController
     def new
         @artist_specialty = ArtistSpecialty.new
+        @artists = Artist.all
+        @specialties = Specialty.all
     end
 
     def create
@@ -13,5 +15,4 @@ class ArtistSpecialtiesController < ApplicationController
 
         redirect_to artist_path(@artist_specialty.artist)
     end
-
 end

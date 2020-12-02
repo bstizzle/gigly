@@ -9,13 +9,14 @@ class ProjectsController < ApplicationController
 
     def new
         @project = Project.new
+        @creators = Creator.all
     end 
 
     def create
         @project = Project.create(project_params)
 
         if @project.valid?
-            redirect_to new_project_specialty_path(@project)
+            redirect_to new_project_specialty_path
         else 
             flash[:project_errors] = @project.errors.full_messages
             redirect_to new_project_path
