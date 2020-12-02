@@ -1,5 +1,5 @@
 <h3>Artists</h3>
 
-<% @artists.each do |creator|%>
-<p><%= link_to creator.to_s, creator_path(creator)%><p>
+<% @artists.each do |artist|%>
+<p><%= link_to artist.to_s, artist_path(artist)%><p>
 <% end %>
