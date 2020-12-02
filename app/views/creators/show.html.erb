@@ -3,26 +3,36 @@
 <h4>Name: <%=@creator.to_s%> </h4> 
 <h4>Email: <%=@creator.email%> </h4> 
 <h4>Bio: <%=@creator.bio%> </h4> 
-<%= button_to "Edit Profile", edit_creator_path(@creator), method: :get %>
-<br>
-<%= button_to "Contact" %>
-<br>
-<br>
+<% if @current_creator %>
+  <% if @current_creator.id == @creator.id %>
+    <%= button_to "Edit Profile", edit_creator_path(@creator), method: :get %>
+    <br>
+    <br>
+  <% else %>
+    <%= button_to "Contact" %>
+    <br>
+    <br>
+  <% end %>
+<% end %>
 
 <h3>My Open Projects</h3>
 <% @creator.projects.each do |project|%>
 <p> <%= link_to project.name, project_path(project)%> <p>
 <% end %>
-<%= button_to "Create a New Project", new_project_path(@creator), method: :get %>
-<br>
-<br>
+<% if @current_creator %>
+  <% if @current_creator.id == @creator.id %>
+    <%= button_to "Create a New Project", new_project_path(@creator), method: :get %>
+    <br>
+    <br>
+  <% end %>
+<% end %>
 
 <h3>Past Projects</h3>
 <% if @creator.past_projects.empty?%>
-<%= "You have no past projects to display"%>
- <% else %>
-   <% @creator.past_projects.each do |project|%>
+  <%= "You have no past projects to display"%>
+<% else %>
+  <% @creator.past_projects.each do |project|%>
     <p><%= project %><p>
-    <% end %>
+  <% end %>
 <% end%>
 

@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+   /* ---------------------- CSS for Navbar and Banner -------------------- */
+
+ .right {
+    float: right;
+  }
+
+  .nav li {
+    /* border: 1px solid black; */
+    display: inline-block;
+    line-height: 30px;
+    padding: 0px 15px;
+    margin: 0px;
+ 
+  }

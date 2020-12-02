@@ -1,4 +1,6 @@
 class ArtistSpecialtiesController < ApplicationController
+    skip_before_action :authorized_creator
+
     def new
         @artist_specialty = ArtistSpecialty.new
         @artists = Artist.all

@@ -7,9 +7,9 @@ class Artist < ApplicationRecord
     
     validates :first_name, presence: true
     validates :last_name, presence: true
-    validates :email, presence: true
+    validates :email, presence: true, on: [:new, :create]
     validates :email, uniqueness: true
-    validates :password, presence: true
+    validates :password, length: { minimum: 3 }, allow_blank: true
 
     def to_s
         self.first_name + "  " + self.last_name

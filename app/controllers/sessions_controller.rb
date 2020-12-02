@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     def logout
         cookies.delete(:creator_id)
         cookies.delete(:artist_id)
-        redirect_to new_login_path
+        redirect_to new_creator_login_path
     end
 
     def creator_login
@@ -17,8 +17,8 @@ class SessionsController < ApplicationController
             cookies[:creator_id] = creator.id
             redirect_to creator_path(creator)
         else
-            flash[:login_errors] = "Username or Password does not match" 
-            redirect_to new_login_path
+            flash[:errors] = "Username or Password does not match" 
+            redirect_to new_creator_login_path
         end 
     end 
 
@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
             redirect_to artist_path(artist)
         else
             flash[:login_errors] = "Username or Password does not match" 
-            redirect_to new_login_path
+            redirect_to new_artist_login_path
         end 
     end 
     

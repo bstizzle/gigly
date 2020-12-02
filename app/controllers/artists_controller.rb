@@ -1,5 +1,5 @@
 class ArtistsController < ApplicationController
-
+    skip_before_action :authorized_creator
 
     def index
         @artists = Artist.all
@@ -22,7 +22,7 @@ class ArtistsController < ApplicationController
             cookies[:login_id] = @artist.id
             redirect_to new_artist_specialty_path
         else
-            flash[:artist_errors] = @artist.errors.full_messages
+            flash[:errors] = @artist.errors.full_messages
             redirect_to new_artist_path
         end
     end
@@ -35,6 +35,7 @@ class ArtistsController < ApplicationController
     def update
         @artist = Artist.find(params[:id])
         @artist.update(artist_params)
+        @artist.save(:validate => false)
 
         redirect_to artist_path(@artist)
     end

@@ -8,7 +8,7 @@ class Creator < ApplicationRecord
     validates :last_name, presence: true
     validates :email, presence: true
     validates :email, uniqueness: true
-    validates :password, presence: true
+    validates :password, length: { minimum: 3 }, allow_blank: true
     #later write custom validation across models
 
     def to_s

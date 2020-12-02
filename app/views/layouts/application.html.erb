@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Gigly</title>
+    <title>Gigly.io</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,22 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="banner">
+      <h1 id="banner-header">GIGLY🤣</h1>
+    </div>
+
+    <ul class="nav">
+      <% if @current_creator %>
+        <li class="right"><%= link_to "logout", logout_path, method: :delete  %></li>
+        <li class="right">Welcome <%= @current_creator.first_name %></li>
+      <% else %>
+        <li class="right"><%= link_to "Sign Up", new_creator_path %></li>
+        <li class="right"><%= link_to "Login", new_creator_login_path %></li>
+      <% end %>
+    </ul>
+
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,0 +1,5 @@
+<h3>Creators</h3>
+
+<% @creators.each do |creator|%>
+<p><%= link_to creator.to_s, creator_path(creator)%><p>
+<% end %>

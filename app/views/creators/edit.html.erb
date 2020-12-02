@@ -1,10 +1,4 @@
-<% if flash[:creator_errors] %>
-    <ul>
-        <% flash[:creator_errors].each do |error| %>
-        <li><%= error %></li>
-        <% end%>
-    </ul>
-<% end%>
+<%= render "shared/errors" %>
     
 <div class="form-container">
     <h1> Edit Your Profile </h1>

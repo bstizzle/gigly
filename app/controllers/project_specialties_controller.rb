@@ -1,4 +1,6 @@
 class ProjectSpecialtiesController < ApplicationController
+    skip_before_action :authorized_creator
+
     def new
         @project_specialty = ProjectSpecialty.new
         @projects = Project.all

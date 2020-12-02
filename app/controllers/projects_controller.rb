@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+    skip_before_action :authorized_creator
+
     def index
         @projects = Project.all
     end
@@ -18,7 +20,7 @@ class ProjectsController < ApplicationController
         if @project.valid?
             redirect_to new_project_specialty_path
         else 
-            flash[:project_errors] = @project.errors.full_messages
+            flash[:errors] = @project.errors.full_messages
             redirect_to new_project_path
         end
     end 

@@ -1,7 +1,7 @@
 class CreatorsController < ApplicationController
 
     before_action :find_creator, only: [:show, :edit, :update, :destroy]
-    skip_before_action :authorized_creator, only: [:new, :create]
+    skip_before_action :authorized_creator
     
     def index
         @creators = Creator.all
@@ -21,7 +21,7 @@ class CreatorsController < ApplicationController
             cookies[:creator_id] = @creator.id
             redirect_to creator_path(@creator)
         else 
-            flash[:creator_errors] = @creator.errors.full_messages
+            flash[:errors] = @creator.errors.full_messages
             redirect_to new_creator_path
         end 
     end 
