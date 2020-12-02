@@ -4,15 +4,20 @@ class ArtistSpecialtiesController < ApplicationController
     end
 
     def create
-        @artist_specialty = ArtistSpecialty.create(artist_spec_params)
+        params[:artist_specialty][:specialty_id].each do |spec|
+            @artist_specialty = ArtistSpecialty.new
+            @artist_specialty[:artist_id] = params[:artist_specialty][:artist_id]
+            @artist_specialty[:specialty_id] = spec
+            @artist_specialty.save
+        end
 
         redirect_to artist_path(@artist_specialty.artist)
     end
 
-    private
+    #private
 
-    def artist_spec_params
-        params.require(:artist_specialty).permit(:artist_id, :specialty_id)
-    end 
+    #def artist_spec_params
+    #    params.require(:artist_specialty).permit(:artist_id, :specialty_id)
+    #end 
 
 end

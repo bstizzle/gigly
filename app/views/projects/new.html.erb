@@ -1,1 +1,28 @@
-<h1>New Project Form</h1>
+<div class="form-container">
+    <h1> Create A Project </h1>
+
+    <%= form_for @project do |f| %>
+    <div class="form-input">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </div>
+
+    <div class="form-input">
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+    </div>
+
+    <div class="form-input">
+        <%= f.label :deadline %>
+        <%= f.text_field :deadline %>
+    </div>
+
+      <div class="form-input">
+        <%= f.label :location %>
+        <%= f.text_field :location %>
+    </div>
+
+      <%= f.submit %>
+<% end %>
+
+</div>

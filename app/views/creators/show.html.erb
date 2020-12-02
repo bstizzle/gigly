@@ -8,8 +8,17 @@
 <%= button_to "Contact" %>
 <br>
 <br>
+
 <h3>My Open Projects</h3>
 <% @creator.projects.each do |project|%>
 <p> <%= link_to project.name, project_path(project)%> <p>
 <% end %>
 <%= button_to "Create a New Project", new_project_path, method: :get %>
+<br>
+<br>
+
+<h3>Past Projects</h3>
+<% @creator.past_projects.each do |project|%>
+<p><%= project %><p>
+<% end %>
+
