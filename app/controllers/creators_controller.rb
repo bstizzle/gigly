@@ -14,12 +14,12 @@ class CreatorsController < ApplicationController
     end 
 
     def create
-        creator = Creator.create(creator_params)
+        @creator = Creator.create(creator_params)
 
-        if creator.valid? 
-            redirect_to creator_path(creator)
+        if @creator.valid? 
+            redirect_to creator_path(@creator)
         else 
-            flash[:errors] = creator.errors.full_messages
+            flash[:creator_errors] = @creator.errors.full_messages
             redirect_to new_creator_path
         end 
 
@@ -30,7 +30,7 @@ class CreatorsController < ApplicationController
 
     def update
 
-        @creator = creator.update(creator_params)
+        @creator.update(creator_params)
 
         if @creator.valid? 
             redirect_to creator_path(@creator)
@@ -43,18 +43,18 @@ class CreatorsController < ApplicationController
 
     def destroy
         @creator.destroy
-        redirect_to creators_apth
+        redirect_to creators_path
     end
 
     
     private
         
-        def creator_params
-            params.require(:creator).permit(:first_name, :last_name, :email, :password, :bio)
-        end 
+    def creator_params
+        params.require(:creator).permit(:first_name, :last_name, :email, :password_digest, :bio)
+    end 
 
-        def find_creator
-            @creator = Creator.all.find(params[:id])
-        end 
+    def find_creator
+        @creator = Creator.all.find(params[:id])
+    end 
 
 end

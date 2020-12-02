@@ -18,7 +18,11 @@
 <br>
 
 <h3>Past Projects</h3>
-<% @creator.past_projects.each do |project|%>
-<p><%= project %><p>
-<% end %>
+<% if @creator.past_projects.empty?%>
+<%= "You have no past projects to display"%>
+ <% else %>
+   <% @creator.past_projects.each do |project|%>
+    <p><%= project %><p>
+    <% end %>
+<% end%>
 
