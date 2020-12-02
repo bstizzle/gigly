@@ -1,0 +1,27 @@
+<div class="form-container">
+  <h1>Edit Artist Profile</h1>
+
+  <%= form_for @artist do |f| %>
+    <div class="form-input">
+      <%= f.label :first_name  %>
+      <%= f.text_field :first_name  %>
+    </div>
+
+    <div class="form-input">
+      <%= f.label :last_name  %>
+      <%= f.text_field :last_name  %>
+    </div>
+
+    <div class="form-input">
+      <%= f.label :email  %>
+      <%= f.text_field :email  %>
+    </div>
+
+    <div class="form-input">
+      <%= f.label :password_digest  %>
+      <%= f.password_field :password_digest  %>
+    </div>
+
+    <%= f.submit %>
+  <% end %>
+</div>

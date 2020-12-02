@@ -14,7 +14,12 @@ class ProjectsController < ApplicationController
     def create
         @project = Project.create(project_params)
 
-        redirect_to project_path(@project)
+        if @project.valid?
+            redirect_to new_project_specialty_path(@project)
+        else 
+            flash[:project_errors] = @project.errors.full_messages
+            redirect_to new_project_path
+        end
     end 
 
     def edit

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_01_221630) do
+ActiveRecord::Schema.define(version: 2020_12_02_194929) do
 
   create_table "artist_specialties", force: :cascade do |t|
     t.integer "artist_id", null: false
@@ -54,6 +54,15 @@ ActiveRecord::Schema.define(version: 2020_12_01_221630) do
     t.index ["project_id"], name: "index_project_artists_on_project_id"
   end
 
+  create_table "project_specialties", force: :cascade do |t|
+    t.integer "project_id", null: false
+    t.integer "specialty_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_project_specialties_on_project_id"
+    t.index ["specialty_id"], name: "index_project_specialties_on_specialty_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -75,5 +84,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_221630) do
   add_foreign_key "artist_specialties", "specialties"
   add_foreign_key "project_artists", "artists"
   add_foreign_key "project_artists", "projects"
+  add_foreign_key "project_specialties", "projects"
+  add_foreign_key "project_specialties", "specialties"
   add_foreign_key "projects", "creators"
 end

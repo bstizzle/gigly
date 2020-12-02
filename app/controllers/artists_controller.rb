@@ -24,7 +24,6 @@ class ArtistsController < ApplicationController
             flash[:artist_errors] = @artist.errors.full_messages
             redirect_to new_artist_path
         end
-
     end
 
 

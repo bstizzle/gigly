@@ -14,10 +14,4 @@ class ArtistSpecialtiesController < ApplicationController
         redirect_to artist_path(@artist_specialty.artist)
     end
 
-    #private
-
-    #def artist_spec_params
-    #    params.require(:artist_specialty).permit(:artist_id, :specialty_id)
-    #end 
-
 end

@@ -1,6 +1,14 @@
-<h2><%= @project.name %></h2>
+<h2>Project Name: <%= @project.name %></h2>
 
 <h4>Location: <%= @project.location %> </h4>
 <h4>Description: <%= @project.description %> </h4>
-<h4>Project Deadline: <%= @project.deadline %> </h4>
-<h4>Location: <%= @project.location %> </h4>
+<h4>Project Deadline: <%= @project.deadline.to_formatted_s(:long) %> </h4>
+<h4>Creator: <%= @project.creator %> </h4>
+<br>
+<h4>Current Artists: <% @project.artists.each do |artist|%> 
+            <p><%= link_to artist.to_s, artist_path(artist)%> <p>
+            <% end %>
+</h4>
+<br> 
+
+<h4>Remaining Specialties Needed:</h4>
