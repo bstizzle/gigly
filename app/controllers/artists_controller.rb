@@ -16,15 +16,14 @@ class ArtistsController < ApplicationController
 
 
     def create
-        artist = Artist.create(artist_params)
+        @artist = Artist.create(artist_params)
          
-        if artist.valid?
-            redirect_to artist_path(artist)
+        if @artist.valid?
+            redirect_to new_artist_specialty_path(@artist)
         else
-            flash[:artist_errors] = artist.errors.full_messages
+            flash[:artist_errors] = @artist.errors.full_messages
             redirect_to new_artist_path
         end
-        
 
     end
 

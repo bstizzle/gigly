@@ -1,0 +1,15 @@
+<h2>Welcome <%= @creator.first_name%> </h2>
+
+<h4>Name: <%=@creator.to_s%> </h4> 
+<h4>Email: <%=@creator.email%> </h4> 
+<h4>Bio: <%=@creator.bio%> </h4> 
+<%= button_to "Edit Profile", edit_creator_path(@creator), method: :get %>
+<br>
+<%= button_to "Contact" %>
+<br>
+<br>
+<h3>My Open Projects</h3>
+<% @creator.projects.each do |project|%>
+<p> <%= link_to project.name, project_path(project)%> <p>
+<% end %>
+<%= button_to "Create a New Project", new_project_path, method: :get %>

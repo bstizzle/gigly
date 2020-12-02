@@ -1,0 +1,12 @@
+<div class="form-container">
+    <%= form_for @artist_specialty do |f| %>
+        <div class="form-input">
+            <%= f.collection_select(:artist_id, Artist.all, :id, :email, {:prompt => "Select yourself:"}) %>
+        </div>
+        <div class="form-input">
+            <%= f.collection_select(:specialty_id, Specialty.all, :id, :name, {:prompt => "Select your specialties:"}, {:multiple => true}) %>
+        </div>
+
+        <%= f.submit %>
+    <% end %>
+</div>
