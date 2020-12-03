@@ -2,7 +2,8 @@ class ArtistsController < ApplicationController
     skip_before_action :authorized_creator
 
     def index
-        @artists = Artist.all
+        @artists = Artist.search_by_rate(params[:search_by_rate])
+        @artists = Artist.search_by_location(params[:search_by_location])
     end
 
 
@@ -50,7 +51,7 @@ class ArtistsController < ApplicationController
     private
 
     def artist_params
-        params.require(:artist).permit(:first_name, :last_name, :email, :password, :bio, :rate, :location)
+        params.require(:artist).permit(:first_name, :last_name, :email, :password, :bio, :rate, :location, :search_by_rate, :search_by_location)
     end
 
 

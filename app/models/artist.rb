@@ -15,4 +15,30 @@ class Artist < ApplicationRecord
         self.first_name + "  " + self.last_name
     end 
 
+    def self.search_by_rate(search)
+        if search
+            search_rate = search
+            rate_int = search_rate.to_i
+            if self.where({rate: 0..rate_int})
+               artist_objects = self.where({rate: 0..rate_int}).sort_by{|artist| artist.rate}
+            else 
+                Artist.all
+            end 
+        else 
+            Artist.all
+        end 
+    end 
+
+    def self.search_by_location(search)
+        if search
+            artist_location = search.capitalize()
+            if self.where(location: artist_location)
+             self.where(location: artist_location)
+            else 
+                Artist.all
+            end 
+        else Artist.all 
+        end 
+    end  
+
 end

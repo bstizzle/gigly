@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_194929) do
     t.integer "rate"
     t.string "location"
     t.boolean "available"
+    t.string "profile_picture"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_194929) do
     t.string "email"
     t.string "password_digest"
     t.text "bio"
+    t.string "profile_picture"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

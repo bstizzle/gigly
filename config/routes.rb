@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :project_specialties, only: [:new, :create]
+  resources :project_specialties
   resources :artist_specialties
   resources :specialties
   resources :project_artists

@@ -9,6 +9,7 @@ class CreateArtists < ActiveRecord::Migration[6.0]
       t.integer :rate
       t.string :location
       t.boolean :available
+      t.string :profile_picture
 
       t.timestamps
     end

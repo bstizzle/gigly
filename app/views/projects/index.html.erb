@@ -1,5 +1,11 @@
 <h1>Projects Index</h1>
 
+<h4>Search by Location: </h4>
+<%= form_tag(projects_path, method: :get) do %>
+    <%= text_field_tag(:search_by_location, params[:search_by_location]) %>
+    <%= submit_tag ("Search") %>
+<% end %>   
+
 <% @projects.each do |project|%>
 <p><%= link_to project.name, project_path(project)%><p>
 <% end %>

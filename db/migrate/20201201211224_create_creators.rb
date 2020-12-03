@@ -6,6 +6,7 @@ class CreateCreators < ActiveRecord::Migration[6.0]
       t.string :email
       t.string :password_digest
       t.text :bio
+      t.string :profile_picture
 
       t.timestamps
     end

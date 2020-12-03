@@ -1,11 +1,5 @@
 <div class="form-container">
     <%= form_for @project_specialty do |f| %>
-        
-        <div class="form-input">
-            <label>Select Your Project</label>
-            <%#= f.collection_select(:project_id, @projects, :id, :name) %>
-        </div>
-
         <div class="form-input">
             <label>Select Specialties</label>
             <%= f.collection_select(:specialty_id, @specialties, :id, :name, {}, {:multiple => true}) %>

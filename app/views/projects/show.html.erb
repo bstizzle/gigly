@@ -14,6 +14,13 @@
 <h4>Remaining Specialties Needed:</h4>
 <ul>
     <% @project.project_specialties.each do |ps|%>
-        <li><%= ps.specialty.name %></li>
+        <li><%= ps.specialty.name %>
+        <%= button_to "Remove", project_specialty_path(ps), method: :delete %> 
+        </li>
     <% end %>
 </ul>
+
+
+<%= button_to "Edit Poject", edit_project_path(@project), method: :get %>
+<br>
+<%= button_to "Delete Project", project_path(@project), method: :delete %> 
