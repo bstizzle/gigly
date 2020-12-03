@@ -9,12 +9,9 @@ class ProjectSpecialtiesController < ApplicationController
 
     def create
         params[:project_specialty][:specialty_id].each do |spec|
-            @project_specialty = ProjectSpecialty.new
-            @project_specialty[:project_id] = params[:project_specialty][:project_id]
-            @project_specialty[:specialty_id] = spec
-            @project_specialty.save
+            @current_creator.projects.last.project_specialties << ProjectSpecialty.create(specialty_id: spec)
         end
 
-        redirect_to project_path(@project_specialty.project)
+        redirect_to project_path(@current_creator.projects.last)
     end
 end

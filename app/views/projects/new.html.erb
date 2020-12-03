@@ -4,11 +4,9 @@
     <h1> Create A Project </h1>
 
     <%= form_for @project do |f| %>
-        <%= f.label :creator_id %> 
-        <%= f.collection_select :creator_id, @creators, :id, :email %>
-
+       
         <div class="form-input">
-            <%= f.label :name %>
+            <%= f.label :project_name %>
             <%= f.text_field :name %>
         </div>
 

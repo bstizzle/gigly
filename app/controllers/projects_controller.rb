@@ -6,7 +6,9 @@ class ProjectsController < ApplicationController
     end
 
     def show
+        #byebug
         @project = Project.find(params[:id])
+        #byebug
     end 
 
     def new
@@ -15,7 +17,8 @@ class ProjectsController < ApplicationController
     end 
 
     def create
-        @project = Project.create(project_params)
+        @current_creator.projects << Project.create(project_params)
+        @project = @current_creator.projects.last
 
         if @project.valid?
             redirect_to new_project_specialty_path
@@ -45,6 +48,6 @@ class ProjectsController < ApplicationController
     private
 
     def project_params
-        params.require(:project).permit(:name, :description, :deadline, :location, :creator_id)
+        params.require(:project).permit(:name, :description, :deadline, :location)
     end
 end

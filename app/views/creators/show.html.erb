@@ -1,5 +1,3 @@
-<h2>Welcome <%= @creator.first_name%> </h2>
-
 <h4>Name: <%=@creator.to_s%> </h4> 
 <h4>Email: <%=@creator.email%> </h4> 
 <h4>Bio: <%=@creator.bio%> </h4> 
@@ -32,7 +30,7 @@
   <%= "You have no past projects to display"%>
 <% else %>
   <% @creator.past_projects.each do |project|%>
-    <p><%= project %><p>
+    <p><%= link_to project.name, project_path(project) %><p>
   <% end %>
 <% end%>
 

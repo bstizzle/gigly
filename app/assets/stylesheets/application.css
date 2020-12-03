@@ -16,30 +16,28 @@
 
    /* ---------------------- CSS for Navbar and Banner -------------------- */
 
- .right {
-    float: right;
-  }
-
-  .nav li {
-    /* border: 1px solid black; */
-    display: inline-block;
-    line-height: 30px;
-    padding: 0px 15px;
-    margin: 0px;
- 
-  }
-
   .right {
     float: right;
   }
 
+  .left {
+    float: left;
+  }
+
   .nav li {
     /* border: 1px solid black; */
     display: inline-block;
+    background-color: darkgoldenrod;
     line-height: 30px;
     padding: 0px 15px;
-    margin: 0px;
- 
+    border-radius: 25px;
+    margin: 5px;
+  }
+
+  .banner {
+    background-color: purple;
+    border-radius: 25px;
+    margin: 75px;
   }
 
     /* --------------CSS for background on every page --------------------- */
@@ -47,7 +45,7 @@
 .container {
   margin: 5px auto;
   max-width: 100%;
-  background-color: rgba(16, 14, 14, 0.4);
+  background-color: rgba(120, 31, 31, 0.4);
   padding: 10px;
   border-radius: 25px;
   height: 100%;
@@ -64,9 +62,11 @@
 }
 
 .form-btn {
-  background-color: rgb(113, 80, 80);
-  margin-top: 20px;
-  border-radius: 30px;
+  background-color: darkblue;
+  width: 50px;
+  border-radius: 20px;
+  padding: 15px;
+  margin: 10px auto;
 }
 
 .form-input {
