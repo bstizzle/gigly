@@ -27,7 +27,7 @@ end
 20.times do
     first_name = Faker::Name.first_name
     last_name = Faker::Name.last_name
-    Artist.create(first_name: first_name, last_name: last_name, email: "#{first_name.downcase}@gmail.com", password_digest: "#{first_name}", bio: Faker::Quote.famous_last_words)
+    Artist.create(first_name: first_name, last_name: last_name, email: "#{first_name.downcase}@gmail.com", password: "#{first_name}", bio: Faker::Quote.famous_last_words)
 end 
 
 30.times do
@@ -37,7 +37,7 @@ end
 20.times do
     first_name = Faker::Name.first_name
     last_name = Faker::Name.last_name
-    Creator.create(first_name: first_name, last_name: last_name, email: "#{first_name.downcase}@gmail.com", password_digest: "#{first_name}", bio: Faker::Quote.famous_last_words)
+    Creator.create(first_name: first_name, last_name: last_name, email: "#{first_name.downcase}@gmail.com", password: "#{first_name}", bio: Faker::Quote.famous_last_words)
 end 
 
 30.times do
