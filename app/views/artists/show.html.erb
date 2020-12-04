@@ -1,32 +1,47 @@
-<h1><%=@artist.to_s%> </h1> 
+<div class="container">
+  <div class="row">
+    <div class="show_column">
+      <p class="profile_item"><%=@artist.to_s%> </p> 
+      <img alt= "profile pic" src=<%=@artist.profile_picture%>>
+      <br>
+      <br>
+      <% if cookies[:creator_id] %>
+        <%= button_to "Hire Artist", new_project_artist_path, method: :get, class: "btn btn-default btn-primary" %>
+        <br>
+        <%= button_to "Contact",  new_project_artist_path, method: :get, class: "btn btn-default btn-primary"%>
+        <br>
+      <% end %>
+      <br>
+      <% if @current_artist %>
+        <% if @current_artist.id == @artist.id %>
+          <%= button_to "Edit Profile", edit_artist_path(@artist), method: :get %>
+          <br>
+          <%= button_to "Delete Profile", artist_path(@artist), method: :delete, class: "btn btn-default btn-primary"%>
+          <br>
+          <br>
+        <% end %>
+      <% end %>
+    </div>
 
-<img alt= "profile pic" src=<%=@artist.profile_picture%> ></h4> 
-<h4>Bio: <%=@artist.bio%> </h4> 
-<h4>Location: <%=@artist.location%> </h4> 
-<h4>Specialties: <% @artist.specialties.each do |spec| %> </h4> 
-    <li><%= spec.name %></li>
-  <% end %>
-<h4>Rate: $<%=@artist.rate%> </h4> 
-<br>
-<h4>Projects: <% @artist.projects.each do |project| %> </h4>
-  <li class="index_item"><%= project.name%> </li>
-  <%end %>
-<br>
-<br>
-
-<% if cookies[:creator_id] %>
-  <%= button_to "Hire Artist", new_project_artist_path, method: :get, class: "btn btn-default btn-primary" %>
-  <br>
-  <%= button_to "Contact", class: "btn btn-default btn-primary" %>
-  <br>
-<% end %>
-<br>
-<% if @current_artist %>
-  <% if @current_artist.id == @artist.id %>
-    <%= button_to "Edit Profile", edit_artist_path(@artist), method: :get %>
-    <br>
-    <%= button_to "Delete Profile", artist_path(@artist), method: :delete, class: "btn btn-default btn-primary"%>
-    <br>
-    <br>
-  <% end %>
-<% end %>
+    <div class="show_column">
+      <p class="profile_item">Bio:</p>
+      <p class="sub_profile_item"><%=@artist.bio%></p>
+      <br>
+      <p class="profile_item">Location:</p>
+      <p class="sub_profile_item"> <%=@artist.location%> </p>
+      <br>
+      <p class="profile_item">Specialties: <% @artist.specialties.each do |spec| %> </p> 
+        <li class="sub_profile_item"><%= spec.name %></li>
+      <% end %>
+      <br>
+      <p class="profile_item">Fulfilled Projects</p>
+      <% if @artist.past_projects.empty?%>
+        <p class="sub_profile_item">You haven't fulfilled any projects yet</p>
+      <% else %>
+        <% @artist.past_projects.each do |project|%>
+          <p class="sub_profile_item"><%= link_to project.name, project_path(project) %><p>
+        <% end %>
+      <% end%>
+    </div>
+  </div>
+</div>

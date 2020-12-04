@@ -18,10 +18,9 @@
    /* ---------------------- CSS for Navbar and Banner -------------------- */
 
 
-
  .index_item {
     font-size: 1.25vw;
-    font-weight: 400
+    font-weight: 400;
  }
 
  .sub_index_item {
@@ -32,8 +31,24 @@
    font-size: 20px;
    font-weight: 300;
  }
-
+.nav {
+  text-align: left;
+}
  .form_group {
   font-size: 20px;
+}
+
+.profile_item {
+  font-size: 1.75vw;
+  font-weight: 400;
+}
+
+.sub_profile_item {
+  font-size: 1.25vw;
+  font-weight: 300;
+}
+
+.show_column {
+  padding: 0px 50px 0px 50px
 }
  
