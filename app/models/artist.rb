@@ -15,6 +15,12 @@ class Artist < ApplicationRecord
         self.first_name + "  " + self.last_name
     end 
 
+    def past_projects
+        self.projects.select do |project|
+            project.deadline < Date.today
+        end
+    end
+
     def self.search_by_rate(search)
         if search
             search_rate = search
