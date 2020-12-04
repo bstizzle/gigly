@@ -22,6 +22,10 @@ class Project < ApplicationRecord
             Project.all
         end 
     end
+
+    def self.all_locations
+        self.all.map{|proj| proj.location}.uniq
+    end
     
     def future_date
         if self.deadline.present? && self.deadline < Date.today

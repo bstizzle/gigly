@@ -1,25 +1,61 @@
 <%= render "shared/errors" %>
     
-<h1> Edit Your Profile </h1>
+<div class="container rounded bg-dark text-white">
+    <h1> Edit Your Profile </h1>
+<%= form_for @creator, :html => {:class => "form-horizontal center"}  do |f| %>
+   <div class="form-row">
+        <div class="col-7">
+            <%= f.label :first_name, class: "col-md-2 control-label"%>
+        <div class="col-md-8">
+             <%= f.text_field :first_name, class: "form-control"%>
+        </div>
+        </div>
 
-<%= form_for @creator do |f| %>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
+        <div class="col">
+    <%= f.label :last_name, class: "col-md-2 control-label" %>
+            <div class="col-md-8">
+    <%= f.text_field :last_name, class: "form-control"%>
+            </div>
+        </div>
+    </div>
 
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
+    <div class="form-group">
+        <div class="col-12">
+    <%= f.label :email, class: "col-md-2 control-label" %>
+            <div class="col-md-8">
+    <%= f.text_field :email, class: "form-control" %>
+             </div>
+        </div>
+    </div>
 
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+    <div class="form-group">
+        <div class="col-12">
+    <%= f.label :password, class: "col-md-2 control-label"%>
+            <div class="col-md-8">
+    <%= f.password_field :password, class: "form-control" %>
+            </div>
+        </div>
+    </div>
 
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+    <div class="form-group">
+        <div class="col-12">
+    <%= f.label :bio, class: "col-md-2 control-label" %>
+            <div class="col-md-8">
+    <%= f.text_area :bio, class: "form-control" %>
+            </div>
+        </div>
+    </div>
 
-    <%= f.label :bio %>
-    <%= f.text_area :bio %>
-
-    <%= f.label :profile_picture_url %>
-    <%= f.text_area :profile_picture %>
- 
-    <%= f.submit %>
+    <div class="form-group">
+        <div class="col-12">
+    <%= f.label :profile_picture_url, class: "col-md-2 control-label"%>
+            <div class="col-md-8">
+    <%= f.text_area :profile_picture, class: "form-control" %>
+            </div>
+        </div>
+    </div>
+    <br>
+    <%= f.submit "Edit your profile", class: "btn btn-default btn-primary" %>
 <% end %>
+<br>
+</div>
