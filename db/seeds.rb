@@ -50,4 +50,3 @@ end
     ProjectArtist.create(project_id: Project.all.sample.id, artist_id: Artist.all.sample.id, accepted: "accepted")
 end 
 
-30.times 

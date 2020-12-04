@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reviews
   resources :project_specialties
   resources :artist_specialties
   resources :specialties
