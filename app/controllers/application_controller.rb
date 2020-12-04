@@ -24,4 +24,26 @@ class ApplicationController < ActionController::Base
     def hire_artist
         @hire_artist = Artist.find_by(id: cookies[:add_artist_id])
     end
+
+    def index_splitter(objects)
+        row_counter = 0
+        col1 = []
+        col2 = []
+        col3 = []
+        objects.each do |art|
+            if row_counter == 0
+                col1 << art
+                row_counter += 1
+            elsif row_counter == 1
+                col2 << art
+                row_counter += 1
+            elsif row_counter == 2
+                col3 << art
+                row_counter = 0
+            end
+        end
+
+        columns = [col1, col2, col3]
+        columns
+    end
 end

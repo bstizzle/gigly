@@ -1,4 +1,4 @@
-<h1>Name: <%=@artist.to_s%> </h1> 
+<h1><%=@artist.to_s%> </h1> 
 
 <img alt= "profile pic" src=<%=@artist.profile_picture%> ></h4> 
 <h4>Bio: <%=@artist.bio%> </h4> 
@@ -8,17 +8,16 @@
   <% end %>
 <h4>Rate: $<%=@artist.rate%> </h4> 
 <br>
-<br>
 <h4>Projects: <% @artist.projects.each do |project| %> </h4>
-  <li><%= project.name%>
+  <li class="index_item"><%= project.name%> </li>
   <%end %>
 <br>
 <br>
 
 <% if cookies[:creator_id] %>
-  <%= button_to "Hire Artist", new_project_artist_path, method: :get %>
+  <%= button_to "Hire Artist", new_project_artist_path, method: :get, class: "btn btn-default btn-primary" %>
   <br>
-  <%= button_to "Contact" %>
+  <%= button_to "Contact", class: "btn btn-default btn-primary" %>
   <br>
 <% end %>
 <br>
@@ -26,7 +25,7 @@
   <% if @current_artist.id == @artist.id %>
     <%= button_to "Edit Profile", edit_artist_path(@artist), method: :get %>
     <br>
-    <%= button_to "Delete Profile", artist_path(@artist), method: :delete%>
+    <%= button_to "Delete Profile", artist_path(@artist), method: :delete, class: "btn btn-default btn-primary"%>
     <br>
     <br>
   <% end %>

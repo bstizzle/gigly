@@ -27,8 +27,7 @@ Done:
 
 Still to do: 
 1. Add a "completed" or "seeking_artist" column to projects via migration 
-4. Styling (CSS)
-
+2. Styling (CSS)
 
 
 Problems: 

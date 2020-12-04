@@ -4,7 +4,8 @@ class ArtistsController < ApplicationController
     def index
         @artists = Artist.search_by_rate(params[:search_by_rate])
         # @artists = Artist.search_by_location(params[:search_by_location])
-    end
+        @columns = index_splitter(@artists)
+    end 
 
 
     def new
