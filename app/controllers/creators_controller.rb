@@ -50,7 +50,7 @@ class CreatorsController < ApplicationController
     private
         
     def creator_params
-        params.require(:creator).permit(:first_name, :last_name, :email, :password, :bio)
+        params.require(:creator).permit(:first_name, :last_name, :email, :password, :bio, :profile_picture)
     end 
 
     def find_creator

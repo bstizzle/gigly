@@ -1,4 +1,4 @@
-<h3>Artists</h3>
+<h1>Artists Index</h1>
 
 <h4>Search by Rate: </h4>
 <%= form_tag(artists_path, method: :get) do %>
@@ -15,7 +15,7 @@
                 <li><%= specialty.name %></li>
             <% end %></ul>
         <li>Location: <%= artist.location %> </li>
-        <li>Rate: <%= artist.rate %> </li>
+        <li>Rate: $<%= artist.rate %> </li>
     </ul>   
 <% end %>
 

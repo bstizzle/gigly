@@ -7,7 +7,12 @@
 <% end %>   
 
 <% @projects.each do |project|%>
-<p><%= link_to project.name, project_path(project)%><p>
+<h3><%= link_to project.name, project_path(project)%></h3>
+<ul>
+    <li>Location: <%= project.location %></li>
+    <li>Deadline: <%= project.deadline.to_formatted_s(:long) %></li>
+    <li>Creator: <%= project.creator %></li>
+</ul>
 <% end %>
 
 <%= button_to "Clear Search", projects_path, method: :get%>

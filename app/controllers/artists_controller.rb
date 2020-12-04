@@ -13,9 +13,7 @@ class ArtistsController < ApplicationController
 
     def show
         @artist = Artist.find(params[:id])
-        cookies[:artist_id] = @artist.id
     end
-
 
     def create
         @artist = Artist.create(artist_params)

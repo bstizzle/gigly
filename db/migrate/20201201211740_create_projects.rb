@@ -5,7 +5,7 @@ class CreateProjects < ActiveRecord::Migration[6.0]
       t.text :description
       t.date :deadline
       t.string :location
-      t.belongs_to :creator, null: false, foreign_key: true
+      t.belongs_to :creator, null: false, foreign_key: {on_delete: :cascade}
 
       t.timestamps
     end

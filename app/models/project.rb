@@ -1,8 +1,8 @@
 class Project < ApplicationRecord
     belongs_to :creator
-    has_many :project_artists, dependent: :delete_all
+    has_many :project_artists
     has_many :artists, through: :project_artists
-    has_many :project_specialties, dependent: :delete_all
+    has_many :project_specialties
     has_many :specialties, through: :project_specialties
     
     validates :name, presence: true
@@ -25,7 +25,7 @@ class Project < ApplicationRecord
     
     def future_date
         if self.deadline.present? && self.deadline < Date.today
-            errors.add(:deadline, "must be in the future")
+            errors.add(:deadline, "must be a date in the future")
         end 
     end
 
