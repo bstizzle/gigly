@@ -6,11 +6,6 @@
     <%= submit_tag ("Search") %>
 <% end %>   
 
-<h4>Search by Location: </h4>
-<%= form_tag(artists_path, method: :get) do %>
-    <%= text_field_tag(:search_by_location, params[:search_by_location]) %>
-    <%= submit_tag ("Search") %>
-<% end %>   
 
 <% @artists.each do |artist| %>
     <h4><%= link_to artist.to_s, artist_path(artist) %></h4>

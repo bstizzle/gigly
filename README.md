@@ -17,14 +17,15 @@ Done:
 10.  Currently you have to add a password in order to edit your creator. Fixed! 
 11. Automatically add creator id to new project form 
 12. Automatically add project name to new project form 
+13. Add a validation to project deadline that makes it have to be x number of days in the future
+14. Add a Nav bar to the top of every screen 
+15. Search Button  for Artists Index and Projects Index 
+16. You can only edit a project if it's yours 
 
 
 Still to do: 
 1. Add a "completed" or "seeking_artist" column to projects via migration 
 4. Styling (CSS)
-5. Search Button  for Artists Index and Projects Index 
-6. Add a validation to project deadline that makes it have to be x number of days in the future
-7. Add a Nav bar to the top of every screen 
 8. Add a "contact" button to a show page if you are not the current user but are signed in 
 9. Building out project artists -- How a project can have artists 
 

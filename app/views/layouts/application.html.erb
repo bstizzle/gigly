@@ -16,6 +16,7 @@
       <ul class="nav">
         <li class="left"><%= link_to "Artists", artists_path, method: :get %></li>
         <li class="left"><%= link_to "Projects", projects_path, method: :get %></li>
+        <li class="left"><%= link_to "Creators", creators_path, method: :get %></li>
         <% if @current_creator %>
           <li class="right"><%= link_to "My Profile", creator_path(cookies[:creator_id]), method: :get  %></li>
           <li class="right"><%= link_to "Logout", logout_path, method: :delete  %></li>

@@ -1,7 +1,8 @@
 class Creator < ApplicationRecord
-    has_many :projects
+    has_many :projects, dependent: :delete_all
     has_many :project_artists, through: :projects
     has_many :artists, through: :project_artists
+
     has_secure_password 
 
     validates :first_name, presence: true

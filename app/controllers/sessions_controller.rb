@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
     def logout
         cookies.delete(:creator_id)
         cookies.delete(:artist_id)
+        cookies.delete(:project_id)
         redirect_to new_creator_login_path
     end
 

@@ -20,7 +20,10 @@
     <% end %>
 </ul>
 
-
-<%= button_to "Edit Poject", edit_project_path(@project), method: :get %>
-<br>
-<%= button_to "Delete Project", project_path(@project), method: :delete %> 
+<% if @current_creator %>
+    <% if @current_creator.id == @project.creator_id %>
+        <%= button_to "Edit Poject", edit_project_path(@project), method: :get %>
+        <br>
+        <%= button_to "Delete Project", project_path(@project), method: :delete %> 
+    <% end %>
+<% end %>

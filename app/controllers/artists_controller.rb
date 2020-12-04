@@ -3,7 +3,7 @@ class ArtistsController < ApplicationController
 
     def index
         @artists = Artist.search_by_rate(params[:search_by_rate])
-        @artists = Artist.search_by_location(params[:search_by_location])
+        # @artists = Artist.search_by_location(params[:search_by_location])
     end
 
 
@@ -13,6 +13,7 @@ class ArtistsController < ApplicationController
 
     def show
         @artist = Artist.find(params[:id])
+        cookies[:artist_id] = @artist.id
     end
 
 

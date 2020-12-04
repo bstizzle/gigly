@@ -2,10 +2,12 @@
 
 <h4>Search by Location: </h4>
 <%= form_tag(projects_path, method: :get) do %>
-    <%= text_field_tag(:search_by_location, params[:search_by_location]) %>
+    <%= collection_select :search_by_location, params[:search_by_location], Project.all, :location, :location%>
     <%= submit_tag ("Search") %>
 <% end %>   
 
 <% @projects.each do |project|%>
 <p><%= link_to project.name, project_path(project)%><p>
 <% end %>
+
+<%= button_to "Clear Search", projects_path, method: :get%>

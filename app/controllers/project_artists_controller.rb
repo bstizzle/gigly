@@ -8,8 +8,8 @@ class ProjectArtistsController < ApplicationController
     end
 
     def create
-        @current_creator.projects.last.project_specialties << ProjectArtist.create(project_id: params[:project_artist][:project_id])
+        @current_artist.project_artists << ProjectArtist.create(project_id: params[:project_artist][:project_id])
 
-        redirect_to project_path(@current_creator.projects.last)
+        redirect_to project_path(params[:project_artist][:project_id])
     end
 end
