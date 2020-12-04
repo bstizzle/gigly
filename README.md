@@ -21,17 +21,18 @@ Done:
 14. Add a Nav bar to the top of every screen 
 15. Search Button  for Artists Index and Projects Index 
 16. You can only edit a project if it's yours 
-
+17. Building out project artists -- How a project can have artists 
+18. Add a "contact" button to a show page if you are not the current user but are signed in 
+19. Add a picture column for artist in the migrations 
 
 Still to do: 
 1. Add a "completed" or "seeking_artist" column to projects via migration 
 4. Styling (CSS)
-8. Add a "contact" button to a show page if you are not the current user but are signed in 
-9. Building out project artists -- How a project can have artists 
+
 
 
 Problems: 
 
 Artist Side Deliverables: 
 1. Allow an artist to accept or reject a job
-2. Add a picture column for artist in the migrations 
+

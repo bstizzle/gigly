@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
     before_action :authorized_creator
     before_action :find_current_project
     before_action :find_current_artist
+    before_action :hire_artist
 
     def find_current_creator
         @current_creator = Creator.find_by(id: cookies[:creator_id])
@@ -18,5 +19,9 @@ class ApplicationController < ActionController::Base
 
     def find_current_artist
         @current_artist = Artist.find_by(id: cookies[:artist_id])
+    end
+
+    def hire_artist
+        @hire_artist = Artist.find_by(id: cookies[:add_artist_id])
     end
 end

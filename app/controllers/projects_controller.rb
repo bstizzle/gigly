@@ -3,6 +3,7 @@ class ProjectsController < ApplicationController
 
     def index
         @projects = Project.search_by_location(params[:search_by_location])
+        byebug
     end
 
     def show

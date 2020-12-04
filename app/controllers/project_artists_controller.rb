@@ -8,7 +8,7 @@ class ProjectArtistsController < ApplicationController
     end
 
     def create
-        @current_artist.project_artists << ProjectArtist.create(project_id: params[:project_artist][:project_id])
+        @hire_artist.project_artists << ProjectArtist.create(project_id: params[:project_artist][:project_id])
 
         redirect_to project_path(params[:project_artist][:project_id])
     end

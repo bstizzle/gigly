@@ -1,29 +1,17 @@
-<div class="form-container">
-    <h1>Edit Project Form</h1>  
+<h1>Edit Project Form</h1>  
 
 <%= form_for @project do |f| %>
-    <div class="form-input">
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-    </div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
 
-    <div class="form-input">
-        <%= f.label :description %>
-        <%= f.text_field :description %>
-    </div>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
 
-    <div class="form-input">
-        <%= f.label :deadline %>
-        <%= f.text_field :deadline %>
-    </div>
+    <%= f.label :deadline %>
+    <%= f.text_field :deadline %>
 
-      <div class="form-input">
-        <%= f.label :location %>
-        <%= f.text_field :location %>
-    </div>
+    <%= f.label :location %>
+    <%= f.text_field :location %>
 
-      <%= f.submit %>
+    <%= f.submit %>
 <% end %>
-
-
-</div>

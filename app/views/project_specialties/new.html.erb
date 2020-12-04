@@ -1,12 +1,8 @@
 <h4>Select Specialties</h4>
 
-<div class="form-container">
-    <%= form_for @project_specialty do |f| %>
-        <div class="form-input">
-            <label>Hold down command to select multiple specialties</label>
-            <%= f.collection_select(:specialty_id, @specialties, :id, :name, {}, {:multiple => true}) %>
-        </div>
+<%= form_for @project_specialty do |f| %>
+    <label>Hold down command to select multiple specialties</label>
+    <%= f.collection_select(:specialty_id, @specialties, :id, :name, {}, {:multiple => true}) %>
 
-        <%= f.submit %>
-    <% end %>
-</div>
+    <%= f.submit %>
+<% end %>

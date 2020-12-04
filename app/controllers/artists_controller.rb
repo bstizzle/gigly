@@ -13,6 +13,7 @@ class ArtistsController < ApplicationController
 
     def show
         @artist = Artist.find(params[:id])
+        cookies[:add_artist_id] = @artist.id
     end
 
     def create

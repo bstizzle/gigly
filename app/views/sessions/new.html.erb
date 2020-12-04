@@ -2,21 +2,12 @@
     <%= flash[:errors]%>
 <% end %>
 
-<div class="form-container">
+<%= form_for :session, url: creator_login_path do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
 
-  <%= form_for :session, url: creator_login_path do |f| %>
-    <div class="form-input">
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-    </div>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
 
-    <div class="form-input">
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-    </div>
-
-    <div class="form-btn">
-      <%= f.submit "Log In" %>
-    </div>
-  <% end %>
-</div>
+  <%= f.submit "Log In" %>
+<% end %>

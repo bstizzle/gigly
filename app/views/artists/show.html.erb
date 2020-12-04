@@ -7,6 +7,13 @@
     <li><%= spec.name %></li>
   <% end %>
 <h4>Rate: $<%=@artist.rate%> </h4> 
+<br>
+<br>
+<h4>Projects: <% @artist.projects.each do |project| %> </h4>
+  <li><%= project.name%>
+  <%end %>
+<br>
+<br>
 
 <% if cookies[:creator_id] %>
   <%= button_to "Hire Artist", new_project_artist_path, method: :get %>

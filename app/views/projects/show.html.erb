@@ -5,10 +5,14 @@
 <h4>Project Deadline: <%= @project.deadline.to_formatted_s(:long) %> </h4>
 <h4>Creator: <%= @project.creator.to_s %> </h4>
 <br>
-<h4>Current Artists: <% @project.artists.each do |artist|%> 
+<h4>Current Artists: 
+<% if @project.artists.empty? == false%>
+    <% @project.artists.each do |artist|%> 
             <p><%= link_to artist.to_s, artist_path(artist)%> <p>
-            <% end %>
-</h4>
+            <% end %> </h4>
+<% else %>
+    <h5><%=link_to "Find artists for this project", artists_path %> </h5>
+<% end %>
 <br> 
 
 <h4>Remaining Specialties Needed:</h4>
