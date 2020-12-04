@@ -2,11 +2,13 @@ class ProjectsController < ApplicationController
     skip_before_action :authorized_creator
 
     def index
-        @projects = Project.all
+        @projects = Project.search_by_location(params[:search_by_location])
     end
 
     def show
+        #byebug
         @project = Project.find(params[:id])
+        #byebug
     end 
 
     def new
@@ -15,9 +17,11 @@ class ProjectsController < ApplicationController
     end 
 
     def create
-        @project = Project.create(project_params)
+        @current_creator.projects << Project.create(project_params)
+        @project = @current_creator.projects.last
 
         if @project.valid?
+            cookies[:project_id] = @project.id
             redirect_to new_project_specialty_path
         else 
             flash[:errors] = @project.errors.full_messages
@@ -31,7 +35,9 @@ class ProjectsController < ApplicationController
 
     def update
         @project = Project.find(params[:id])
+        @project.update(project_params)
 
+        cookies[:project_id] = @project.id
         redirect_to project_path(@project)
     end 
 
@@ -39,12 +45,12 @@ class ProjectsController < ApplicationController
         @project = Project.find(params[:id])
         @project.delete
         
-        redirect_to projects_path
+        redirect_to creator_path(@current_creator)
     end
 
     private
 
     def project_params
-        params.require(:project).permit(:name, :description, :deadline, :location, :creator_id)
+        params.require(:project).permit(:name, :description, :deadline, :location, :search_by_location)
     end
 end

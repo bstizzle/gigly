@@ -1,11 +1,12 @@
-<h2>Welcome <%= @creator.first_name%> </h2>
-
 <h4>Name: <%=@creator.to_s%> </h4> 
+<img alt= "profile pic" src=<%=@creator.profile_picture%> ></h4> 
 <h4>Email: <%=@creator.email%> </h4> 
 <h4>Bio: <%=@creator.bio%> </h4> 
 <% if @current_creator %>
   <% if @current_creator.id == @creator.id %>
     <%= button_to "Edit Profile", edit_creator_path(@creator), method: :get %>
+    <br>
+    <%= button_to "Delete Profile", creator_path(@creator), method: :delete%>
     <br>
     <br>
   <% else %>
@@ -32,7 +33,7 @@
   <%= "You have no past projects to display"%>
 <% else %>
   <% @creator.past_projects.each do |project|%>
-    <p><%= project %><p>
+    <p><%= link_to project.name, project_path(project) %><p>
   <% end %>
 <% end%>
 

@@ -1,5 +1,8 @@
-<h3>Creators</h3>
+<h1>Creators Index</h1>
 
 <% @creators.each do |creator|%>
-<p><%= link_to creator.to_s, creator_path(creator)%><p>
+<h3><%= link_to creator.to_s, creator_path(creator)%></h3>
+<ul>
+    <li>Bio: <%= creator.bio %></li>
+</ul>
 <% end %>

@@ -1,5 +1,21 @@
-<h3>Artists</h3>
+<h1>Artists Index</h1>
 
-<% @artists.each do |artist|%>
-<p><%= link_to artist.to_s, artist_path(artist)%><p>
+<h4>Search by Rate: </h4>
+<%= form_tag(artists_path, method: :get) do %>
+    <%= text_field_tag(:search_by_rate, params[:search_by_rate]) %>
+    <%= submit_tag ("Search") %>
+<% end %>   
+
+
+<% @artists.each do |artist| %>
+    <h4><%= link_to artist.to_s, artist_path(artist) %></h4>
+    <ul>
+        <li>Specialties:</li> 
+            <ul><% artist.specialties.each do |specialty| %>
+                <li><%= specialty.name %></li>
+            <% end %></ul>
+        <li>Location: <%= artist.location %> </li>
+        <li>Rate: $<%= artist.rate %> </li>
+    </ul>   
 <% end %>
+

@@ -1,0 +1,11 @@
+
+<div class="form-container">
+    <%= form_for @project_artist do |f| %>
+        <div class="form-input">
+            <label>Select project to add artist to:</label>
+            <%= f.collection_select(:project_id, @current_creator.projects, :id, :name) %>
+        </div>
+
+        <%= f.submit "Send Hire Request" %>
+    <% end %>
+</div>

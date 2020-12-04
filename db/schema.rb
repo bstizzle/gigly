@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_194929) do
     t.integer "rate"
     t.string "location"
     t.boolean "available"
+    t.string "profile_picture"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_194929) do
     t.string "email"
     t.string "password_digest"
     t.text "bio"
+    t.string "profile_picture"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -80,11 +82,11 @@ ActiveRecord::Schema.define(version: 2020_12_02_194929) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "artist_specialties", "artists"
-  add_foreign_key "artist_specialties", "specialties"
-  add_foreign_key "project_artists", "artists"
-  add_foreign_key "project_artists", "projects"
-  add_foreign_key "project_specialties", "projects"
-  add_foreign_key "project_specialties", "specialties"
-  add_foreign_key "projects", "creators"
+  add_foreign_key "artist_specialties", "artists", on_delete: :cascade
+  add_foreign_key "artist_specialties", "specialties", on_delete: :cascade
+  add_foreign_key "project_artists", "artists", on_delete: :cascade
+  add_foreign_key "project_artists", "projects", on_delete: :cascade
+  add_foreign_key "project_specialties", "projects", on_delete: :cascade
+  add_foreign_key "project_specialties", "specialties", on_delete: :cascade
+  add_foreign_key "projects", "creators", on_delete: :cascade
 end

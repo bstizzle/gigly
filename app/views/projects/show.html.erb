@@ -3,7 +3,7 @@
 <h4>Location: <%= @project.location %> </h4>
 <h4>Description: <%= @project.description %> </h4>
 <h4>Project Deadline: <%= @project.deadline.to_formatted_s(:long) %> </h4>
-<h4>Creator: <%= @project.creator %> </h4>
+<h4>Creator: <%= @project.creator.to_s %> </h4>
 <br>
 <h4>Current Artists: <% @project.artists.each do |artist|%> 
             <p><%= link_to artist.to_s, artist_path(artist)%> <p>
@@ -12,3 +12,18 @@
 <br> 
 
 <h4>Remaining Specialties Needed:</h4>
+<ul>
+    <% @project.project_specialties.each do |ps|%>
+        <li><%= ps.specialty.name %>
+        <%= button_to "Remove", project_specialty_path(ps), method: :delete %> 
+        </li>
+    <% end %>
+</ul>
+
+<% if @current_creator %>
+    <% if @current_creator.id == @project.creator_id %>
+        <%= button_to "Edit Poject", edit_project_path(@project), method: :get %>
+        <br>
+        <%= button_to "Delete Project", project_path(@project), method: :delete %> 
+    <% end %>
+<% end %>
