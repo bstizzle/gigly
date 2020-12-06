@@ -23,6 +23,12 @@ class Artist < ApplicationRecord
         end
     end
 
+    def upcoming_projects
+        self.projects.select do |project|
+            project.deadline > Date.today
+        end 
+    end 
+
     def self.search_by_rate(search)
         if search
             search_rate = search

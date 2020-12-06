@@ -34,9 +34,23 @@
         <li class="sub_profile_item"><%= spec.name %></li>
       <% end %>
       <br>
-      <p class="profile_item">Fulfilled Projects</p>
-      <% if @artist.past_projects.empty?%>
-        <p class="sub_profile_item">You haven't fulfilled any projects yet</p>
+      <p class="profile_item">Average Rating: <%=link_to @artist.average_rating, artist_reviews_path(cookies[:add_artist_id].to_i) %> </p> 
+      <p class="profile_item">Upcoming Projects</p>
+      <% if @current_artist && @artist.upcoming_projects.empty?%>
+        <p class="sub_profile_item">You don't have any upcoming projects. Browse projects to find a gig!</p>
+      <% elsif @artist.upcoming_projects.empty?%>
+        <p class="sub_profile_item"><%= @artist.first_name%> doesn't have any upcoming projects on Gigly yet.</p>
+      <% else %>
+        <% @artist.upcoming_projects.each do |project|%>
+          <p class="sub_profile_item"><%= link_to project.name, project_path(project) %><p>
+        <% end %>
+      <% end%>
+      <br>
+      <p class="profile_item">Past Projects</p>
+      <% if @current_artist && @artist.past_projects.empty?%>
+        <p class="sub_profile_item">You haven't fulfilled any projects yet. Browse projects to find a gig!</p>
+      <% elsif @artist.past_projects.empty?%>
+        <p class="sub_profile_item"><%= @artist.first_name%> hasn't completed any projects on Gigly yet.</p>
       <% else %>
         <% @artist.past_projects.each do |project|%>
           <p class="sub_profile_item"><%= link_to project.name, project_path(project) %><p>
