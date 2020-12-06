@@ -25,7 +25,9 @@
                     <% end %></ul>
                 <li class="index_item">Location: <%= artist.location %> </li>
                 <li class="index_item">Rate: $<%= artist.rate %> </li>
-                <li class="index_item">Average Rating: <%= artist.average_rating %> </li>
+                <% if artist.average_rating > 0 %> 
+                <li class="index_item">Average Rating: <%= artist.average_rating%></li>
+                    <% end %> 
                 <br>
                 <br>
             <% end %>

@@ -33,7 +33,7 @@ class Artist < ApplicationRecord
                 Artist.all
             end 
         else 
-            Artist.all
+                Artist.all
         end 
     end 
 
