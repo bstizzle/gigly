@@ -58,9 +58,11 @@ adjective_array = [
     "just ok",
     "pretty good",    
 ]
+
 i = 0 
 20.times do
     Review.create(creator_id: ProjectArtist.all[i].project.creator.id, artist_id: ProjectArtist.all[i].artist.id, description: " #{Faker::Quote.yoda} With that being said, overall #{ProjectArtist.all[i].artist.first_name} was #{adjective_array.sample}.", title: Faker::Book.title, rating: rand(1..5))
+    i += 1
 end 
 
 

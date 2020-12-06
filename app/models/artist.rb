@@ -3,6 +3,8 @@ class Artist < ApplicationRecord
     has_many :projects, through: :project_artists
     has_many :artist_specialties
     has_many :specialties, through: :artist_specialties 
+    has_many :reviews
+    has_many :creators, through: :reviews
     has_secure_password
     
     validates :first_name, presence: true
@@ -33,6 +35,12 @@ class Artist < ApplicationRecord
         else 
             Artist.all
         end 
+    end 
+
+
+
+    def average_rating
+       ((self.reviews.sum {|review| review.rating}).to_f / self.reviews.count.to_f).round(1)
     end 
 
     # def self.search_by_location(search)
