@@ -2,8 +2,18 @@ class ArtistsController < ApplicationController
     skip_before_action :authorized_creator
 
     def index
-        @artists = Artist.search_by_rate(params[:search_by_rate])
+        @artists = Artist.all
         @columns = index_splitter(@artists)
+        if params[:search_by_rate]
+            @artists = Artist.search_by_rate(params[:search_by_rate])
+            @columns = index_splitter(@artists)
+        elsif params[:search_by_location]
+            @artists = Artist.search_by_location(params[:search_by_location])
+            @columns = index_splitter(@artists)
+        elsif params[:search_by_specialty]
+            @artists = Artist.search_by_specialty(params[:search_by_specialty])
+            @columns = index_splitter(@artists)
+        end
     end 
 
 

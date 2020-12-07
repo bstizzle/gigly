@@ -4,5 +4,6 @@ class Review < ApplicationRecord
 
   validates_presence_of :rating
   validates :rating, :inclusion => 1..5
+  validates :artist_id, uniqueness: {scope: :creator_id}
 
 end

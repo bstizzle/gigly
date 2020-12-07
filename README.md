@@ -24,10 +24,9 @@ Done:
 17. Building out project artists -- How a project can have artists 
 18. Add a "contact" button to a show page if you are not the current user but are signed in 
 19. Add a picture column for artist in the migrations 
+20. Styling and CSS
 
 Still to do: 
-1. Add a "completed" or "seeking_artist" column to projects via migration 
-2. Styling (CSS)
 
 
 Problems: 

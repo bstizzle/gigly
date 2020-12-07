@@ -34,11 +34,11 @@ class Artist < ApplicationRecord
             search_rate = search.to_i
             if self.where({rate: 0..search_rate})
                self.where({rate: 0..search_rate}).sort_by{|artist| artist.rate}
-            else 
+            else
                 Artist.all
             end 
         else 
-                Artist.all
+            Artist.all
         end 
     end 
 
@@ -48,16 +48,27 @@ class Artist < ApplicationRecord
        ((self.reviews.sum {|review| review.rating}).to_f / self.reviews.count.to_f).round(1)
     end 
 
-    # def self.search_by_location(search)
-    #     if search
-    #         artist_location = search.capitalize()
-    #         if self.where(location: artist_location)
-    #          self.where(location: artist_location)
-    #         else 
-    #             Artist.all
-    #         end 
-    #     else Artist.all 
-    #     end 
-    # end  
+    def self.search_by_location(search)
+        if search
+            search_location = search
+            if self.where(location: search_location)
+                self.where(location: search_location)
+            else 
+                Artist.all
+            end 
+        else 
+            Artist.all
+        end 
+    end
+
+    def self.search_by_specialty(search)
+        if search
+            search_spec = search
+            return_array = ArtistSpecialty.all.where(specialty_id: search_spec) 
+            return_array.map{|as| as.artist}
+        else
+            Artist.all
+        end
+    end
 
 end

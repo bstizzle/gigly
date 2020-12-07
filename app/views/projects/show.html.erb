@@ -28,7 +28,11 @@
         <ul>
             <% @project.project_specialties.each do |ps|%>
                 <li class="sub_profile_item"><%= ps.specialty.name %>
+                <% if @current_creator %>
+                    <% if @current_creator.id == @project.creator_id %>
                 <%= button_to "Remove", project_specialty_path(ps), method: :delete, class:"btn btn-default btn-primary btn-lg" %> 
+                    <% end %>
+                <% end %>
                 </li>
             <% end %>
         </ul>
