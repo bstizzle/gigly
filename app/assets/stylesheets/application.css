@@ -52,7 +52,8 @@
 }
 
 .show_column {
-  padding: 0px 50px 0px 50px
+  padding: 0px 50px 0px 50px;
+  max-width: 500px;
 }
 
 .title {
@@ -80,4 +81,8 @@ body {
 .errors {
   color: white;
   font-size: 15px
+}
+
+img {
+  max-width: 200px;
 }

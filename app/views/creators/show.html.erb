@@ -5,7 +5,8 @@
       <p class="profile_item"><%= @creator.to_s %></p> 
       <img alt= "profile pic" src=<%=@creator.profile_picture%> ></h4>
 
-      <p class="profile_item">Bio:</p> <p class="sub_profile_item"><%=@creator.bio%> </p>
+      <p class="profile_item">Bio:</p>
+      <p class="sub_profile_item"><%=@creator.bio%> </p>
       <br>
       <% if @current_creator %>
         <% if @current_creator.id == @creator.id %>

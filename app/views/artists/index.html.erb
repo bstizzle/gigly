@@ -36,17 +36,17 @@
             <div class="col">
             <% col.each do |artist| %>
                 <h1 class="index_item"><%= link_to artist.to_s, artist_path(artist) %></h1>
-                <img alt="thumbnails" src=<%=artist.profile_picture%> class="img-thumbnail">
+                <img alt="thumbnails" src=<%=artist.profile_picture%>>
                 <br>
-                <li class="index_item">Specialties:</li> 
+                <p class="index_item">Specialties:</p> 
                     <ul><% artist.specialties.each do |specialty| %>
                     
                         <li class="sub_index_item"><%= specialty.name %></li>
                     <% end %></ul>
-                <li class="index_item">Location: <%= artist.location %> </li>
-                <li class="index_item">Rate: $<%= artist.rate %> </li>
+                <p class="index_item">Location: <%= artist.location %> </p>
+                <p class="index_item">Rate: $<%= artist.rate %> </p>
                 <% if artist.average_rating > 0 %> 
-                <li class="index_item">Average Rating: <%= artist.average_rating%></li>
+                <p class="index_item">Average Rating: <%= artist.average_rating%></p>
                     <% end %> 
                 <br>
                 <br>

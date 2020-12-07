@@ -12,9 +12,9 @@
             <div class="col">
             <% col.each do |creator| %>
                 <h1 class="index_item"><%= link_to creator.to_s, creator_path(creator) %></h1>
-                <img alt="thumbnails" src=<%=creator.profile_picture%> class="img-thumbnail">
+                <img alt="thumbnails" src=<%=creator.profile_picture%>>
                 <br>
-                <p class="sub_index_item">Bio: <%= creator.bio %></p>
+                <p class="sub_index_item">Bio: <%= truncate(creator.bio, length: 24) %></p>
                 <br>
                 <br>
             <% end %>
