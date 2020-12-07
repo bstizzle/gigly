@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :projects
   resources :creators
   resources :artists, only: [:new, :create, :show, :index, :edit, :update, :destroy] 
+  resources :reviews, only: [:show]
   
   get "/sessions/new", to: 'sessions#new', as: 'new_creator_login'
   post '/sessions/creator_login', to: 'sessions#creator_login', as: 'creator_login'

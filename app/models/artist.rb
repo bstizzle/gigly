@@ -31,10 +31,9 @@ class Artist < ApplicationRecord
 
     def self.search_by_rate(search)
         if search
-            search_rate = search
-            rate_int = search_rate.to_i
-            if self.where({rate: 0..rate_int})
-               self.where({rate: 0..rate_int}).sort_by{|artist| artist.rate}
+            search_rate = search.to_i
+            if self.where({rate: 0..search_rate})
+               self.where({rate: 0..search_rate}).sort_by{|artist| artist.rate}
             else 
                 Artist.all
             end 

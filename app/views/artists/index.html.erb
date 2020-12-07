@@ -11,7 +11,8 @@
         <%= form_tag(artists_path, method: :get) do %>
             <%= text_field_tag(:search_by_rate, params[:search_by_rate]) %>
             <%= submit_tag ("Search"), class: "btn btn-default btn-primary"  %>
-        <% end %>   
+        <% end %>  
+            <%= button_to "Clear this search", artists_path, method: :get, class: "btn btn-default btn-primary" %> 
         </div>
         <% @columns.each do |col| %>
             <div class="col">

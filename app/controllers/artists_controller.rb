@@ -3,9 +3,7 @@ class ArtistsController < ApplicationController
 
     def index
         @artists = Artist.search_by_rate(params[:search_by_rate])
-        # @artists = Artist.search_by_location(params[:search_by_location])
         @columns = index_splitter(@artists)
-        #byebug
     end 
 
 
@@ -50,6 +48,7 @@ class ArtistsController < ApplicationController
 
         redirect_to artists_path
     end
+
 
     private
 
