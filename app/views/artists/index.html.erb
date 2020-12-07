@@ -13,6 +13,7 @@
             <br>
             <%= submit_tag ("Search"), class: "btn btn-default btn-primary btn-lg"  %>
         <% end %>   
+        <%= button_to "Clear this search", artists_path, method: :get, class: "btn btn-default btn-primary btn-lg" %> 
         </div>
         <% @columns.each do |col| %>
             <div class="col">
@@ -26,6 +27,9 @@
                     <% end %></ul>
                 <li class="index_item">Location: <%= artist.location %> </li>
                 <li class="index_item">Rate: $<%= artist.rate %> </li>
+                <% if artist.average_rating > 0 %> 
+                <li class="index_item">Average Rating: <%= artist.average_rating%></li>
+                    <% end %> 
                 <br>
                 <br>
             <% end %>

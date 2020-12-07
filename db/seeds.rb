@@ -15,6 +15,7 @@ Specialty.destroy_all
 Creator.destroy_all
 ArtistSpecialty.destroy_all
 ProjectArtist.destroy_all
+Review.destroy_all
 
 Specialty.create(name: "Mixing")
 Specialty.create(name: "Concert recording")
@@ -48,4 +49,19 @@ end
 
 20.times do
     ProjectArtist.create(project_id: Project.all.sample.id, artist_id: Artist.all.sample.id, accepted: "accepted")
+
+end
+
+adjective_array = [
+    "good",
+    "excellent",
+    "awful",
+    "just ok",
+    "pretty good",    
+]
+
+i = 0 
+20.times do
+    Review.create(creator_id: ProjectArtist.all[i].project.creator.id, artist_id: ProjectArtist.all[i].artist.id, description: " #{Faker::Quote.yoda} With that being said, overall #{ProjectArtist.all[i].artist.first_name} was #{adjective_array.sample}.", title: Faker::Book.title, rating: rand(1..5))
+    i += 1
 end
