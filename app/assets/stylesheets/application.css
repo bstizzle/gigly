@@ -67,8 +67,8 @@
   font-variant: normal;
   text-transform: uppercase;
   text-align: center;
-  background-image: url("https://scx2.b-cdn.net/gfx/news/hires/2016/578650fe544c4.jpg");
-  background-size: contain;
+  background-image: url("https://scx2.b-cdn.net/gfx/news/hires/2016/578650fe544c4.jpg") ;
+  background-size: 200px 50px;
 } 
 
 body {
