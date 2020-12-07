@@ -11,10 +11,10 @@
             <%= form_tag(projects_path, method: :get) do %>
                 <h3 style="color:black"><%= collection_select :search_by_location, params[:search_by_location], @projects.uniq{|proj| proj.location}, :location, :location %></h3>
                 <br>
-                <%= submit_tag ("Search"), class: "btn btn-default btn-primary"  %>
+                <%= submit_tag ("Search"), class: "btn btn-default btn-primary btn-lg"  %>
             <% end %>  
             <br>
-            <%= button_to "Clear this search", projects_path, method: :get, class: "btn btn-default btn-primary" %>
+            <%= button_to "Clear this search", projects_path, method: :get, class: "btn btn-default btn-primary btn-lg" %>
 
         </div>
         <% @columns.each do |col| %>

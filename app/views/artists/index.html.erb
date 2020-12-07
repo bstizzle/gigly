@@ -11,7 +11,7 @@
         <%= form_tag(artists_path, method: :get) do %>
             <h3 style="color:black"><%= text_field_tag(:search_by_rate, params[:search_by_rate]) %></h3>
             <br>
-            <%= submit_tag ("Search"), class: "btn btn-default btn-primary"  %>
+            <%= submit_tag ("Search"), class: "btn btn-default btn-primary btn-lg"  %>
         <% end %>   
         </div>
         <% @columns.each do |col| %>

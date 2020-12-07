@@ -9,13 +9,13 @@
       <br>
       <% if @current_creator %>
         <% if @current_creator.id == @creator.id %>
-          <%= button_to "Edit Profile", edit_creator_path(@creator), method: :get, class: "btn btn-default btn-primary" %>
+          <%= button_to "Edit Profile", edit_creator_path(@creator), method: :get, class: "btn btn-default btn-primary btn-lg" %>
           <br>
-          <%= button_to "Delete Profile", creator_path(@creator), method: :delete, class: "btn btn-default btn-primary"%>
+          <%= button_to "Delete Profile", creator_path(@creator), method: :delete, class: "btn btn-default btn-primary btn-lg"%>
           <br>
           <br>
         <% else %>
-          <%= button_to "Contact" %>
+          <%= button_to "Contact", artists_path, method: :get,class: "btn btn-default btn-primary btn-lg" %>
           <br>
           <br>
         <% end %>
@@ -28,7 +28,7 @@
       <% end %>
       <% if @current_creator %>
         <% if @current_creator.id == @creator.id %>
-          <%= button_to "Create a New Project", new_project_path(@creator), method: :get, class: "btn btn-default btn-primary" %>
+          <%= button_to "Create a New Project", new_project_path(@creator), method: :get, class: "btn btn-default btn-primary btn-lg" %>
           <br>
           <br>
         <% end %>
