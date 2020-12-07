@@ -6,9 +6,9 @@ class Project < ApplicationRecord
     has_many :specialties, through: :project_specialties
     
     validates :name, presence: true
+    validates :deadline, presence: true
     validates :description, presence: true
     validate :future_date 
-    #  
 
     def self.search_by_location(search)
         if search
