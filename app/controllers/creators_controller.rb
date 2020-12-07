@@ -5,6 +5,7 @@ class CreatorsController < ApplicationController
     
     def index
         @creators = Creator.all
+        @columns = index_splitter(@creators)
     end 
 
     def show 

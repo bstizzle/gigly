@@ -1,17 +1,26 @@
-<h2>Project Name: <%= @project.name %></h2>
-
-<h4>Location: <%= @project.location %> </h4>
-<h4>Description: <%= @project.description %> </h4>
-<h4>Project Deadline: <%= @project.deadline.to_formatted_s(:long) %> </h4>
-<h4>Creator: <%= @project.creator.to_s %> </h4>
+<h1>Project Name: <%= @project.name %></h1>
 <br>
-<h4>Current Artists: <% @project.artists.each do |artist|%> 
+<h3>Location: <%= @project.location %> </h3>
+<br>
+<h3>Description: <%= @project.description %> </h3>
+<br>
+<h3>Project Deadline: <%= @project.deadline.to_formatted_s(:long) %> </h3>
+<br>
+<h3>Creator: <%= @project.creator.to_s %> </h3>
+<br>
+<h3>Current Artists: 
+<% if @project.artists.empty? == false%>
+    <% @project.artists.each do |artist|%> 
             <p><%= link_to artist.to_s, artist_path(artist)%> <p>
-            <% end %>
-</h4>
+            <% end %> </h3>
+<% elsif @current_creator && @current_creator.id == project.creator.id %>
+    <h5><%=link_to "Find artists for this project", artists_path %> </h5>
+<% else %>
+    <p>There are no artists for this project yet<p>
+<% end %>
 <br> 
 
-<h4>Remaining Specialties Needed:</h4>
+<h3>Remaining Specialties Needed:</h3>
 <ul>
     <% @project.project_specialties.each do |ps|%>
         <li><%= ps.specialty.name %>

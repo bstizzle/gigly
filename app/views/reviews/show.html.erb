@@ -1,0 +1,7 @@
+<h1><%= link_to @hire_artist.to_s, artist_path(@hire_artist) %>
+
+ <% @reviews.each do |review| %>
+<h3>Title: <%= review.title%></h3>
+<p>Description: <%= review.description%><p>
+<p>Review: <%= review.rating%>
+<%end %>

@@ -1,8 +1,22 @@
-<h1>Creators Index</h1>
+<div class="container">
+    <div class="row">
+    <h1>Creators Index</h1>
+    </div>
+</div>
 
-<% @creators.each do |creator|%>
-<h3><%= link_to creator.to_s, creator_path(creator)%></h3>
-<ul>
-    <li>Bio: <%= creator.bio %></li>
-</ul>
-<% end %>
+<div class="container">
+    <div class="row">
+        <div class="col">
+        </div>
+        <% @columns.each do |col| %>
+            <div class="col">
+            <% col.each do |creator| %>
+                <h2><%= link_to creator.to_s, creator_path(creator) %></h2>
+                <p class="sub_index_item">Bio: <%= creator.bio %></p>
+                <br>
+                <br>
+            <% end %>
+            </div>
+        <% end %>   
+    </div>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_02_194929) do
+ActiveRecord::Schema.define(version: 2020_12_04_234347) do
 
   create_table "artist_specialties", force: :cascade do |t|
     t.integer "artist_id", null: false
@@ -76,6 +76,18 @@ ActiveRecord::Schema.define(version: 2020_12_02_194929) do
     t.index ["creator_id"], name: "index_projects_on_creator_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer "artist_id", null: false
+    t.integer "creator_id", null: false
+    t.integer "rating"
+    t.string "description"
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["artist_id"], name: "index_reviews_on_artist_id"
+    t.index ["creator_id"], name: "index_reviews_on_creator_id"
+  end
+
   create_table "specialties", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -89,4 +101,6 @@ ActiveRecord::Schema.define(version: 2020_12_02_194929) do
   add_foreign_key "project_specialties", "projects", on_delete: :cascade
   add_foreign_key "project_specialties", "specialties", on_delete: :cascade
   add_foreign_key "projects", "creators", on_delete: :cascade
+  add_foreign_key "reviews", "artists", on_delete: :cascade
+  add_foreign_key "reviews", "creators", on_delete: :cascade
 end

@@ -3,12 +3,11 @@ class ProjectsController < ApplicationController
 
     def index
         @projects = Project.search_by_location(params[:search_by_location])
+        @columns = index_splitter(@projects)
     end
 
     def show
-        #byebug
         @project = Project.find(params[:id])
-        #byebug
     end 
 
     def new

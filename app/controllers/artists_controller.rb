@@ -3,8 +3,8 @@ class ArtistsController < ApplicationController
 
     def index
         @artists = Artist.search_by_rate(params[:search_by_rate])
-        # @artists = Artist.search_by_location(params[:search_by_location])
-    end
+        @columns = index_splitter(@artists)
+    end 
 
 
     def new
@@ -13,6 +13,8 @@ class ArtistsController < ApplicationController
 
     def show
         @artist = Artist.find(params[:id])
+        cookies[:add_artist_id] = @artist.id
+        #byebug
     end
 
     def create
@@ -46,6 +48,7 @@ class ArtistsController < ApplicationController
 
         redirect_to artists_path
     end
+
 
     private
 
