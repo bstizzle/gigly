@@ -18,19 +18,21 @@
    /* ---------------------- CSS for Navbar and Banner -------------------- */
 
 
- .index_item {
-    font-size: 1.25vw;
-    font-weight: 400;
- }
+.index_item {
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  font-size: 1.25vw;
+  font-weight: 400;
+}
 
- .sub_index_item {
-    font-size: 1vw;
- }
+.sub_index_item {
+  font-size: 1vw;
+}
 
- .nav_item {
-   font-size: 20px;
-   font-weight: 300;
- }
+.nav_item {
+  font-size: 20px;
+  font-weight: 300;
+}
+
 .nav {
   text-align: left;
 }
@@ -39,6 +41,7 @@
 }
 
 .profile_item {
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   font-size: 1.75vw;
   font-weight: 400;
 }
@@ -51,4 +54,3 @@
 .show_column {
   padding: 0px 50px 0px 50px
 }
- 

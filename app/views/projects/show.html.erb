@@ -1,38 +1,45 @@
-<h1>Project Name: <%= @project.name %></h1>
+<div class="container rounded bg-dark text-white">
 <br>
-<h3>Location: <%= @project.location %> </h3>
-<br>
-<h3>Description: <%= @project.description %> </h3>
-<br>
-<h3>Project Deadline: <%= @project.deadline.to_formatted_s(:long) %> </h3>
-<br>
-<h3>Creator: <%= @project.creator.to_s %> </h3>
-<br>
-<h3>Current Artists: 
-<% if @project.artists.empty? == false%>
-    <% @project.artists.each do |artist|%> 
-            <p><%= link_to artist.to_s, artist_path(artist)%> <p>
-            <% end %> </h3>
-<% elsif @current_creator && @current_creator.id == project.creator.id %>
-    <h5><%=link_to "Find artists for this project", artists_path %> </h5>
-<% else %>
-    <p>There are no artists for this project yet<p>
-<% end %>
-<br> 
-
-<h3>Remaining Specialties Needed:</h3>
-<ul>
-    <% @project.project_specialties.each do |ps|%>
-        <li><%= ps.specialty.name %>
-        <%= button_to "Remove", project_specialty_path(ps), method: :delete %> 
-        </li>
-    <% end %>
-</ul>
-
-<% if @current_creator %>
-    <% if @current_creator.id == @project.creator_id %>
-        <%= button_to "Edit Poject", edit_project_path(@project), method: :get %>
+    <div class="row">    
+        <div class="col">    
+        <p class="profile_item">Project Name: <span class="sub_profile_item"><%= @project.name %></span></p>
         <br>
-        <%= button_to "Delete Project", project_path(@project), method: :delete %> 
-    <% end %>
-<% end %>
+        <p class="profile_item">Location: <span class="sub_profile_item"><%= @project.location %></span></p>
+        <br>
+        <p class="profile_item">Description: <span class="sub_profile_item"><%= @project.description %></span></p>
+        <br>
+        <p class="profile_item">Deadline: <span class="sub_profile_item"><%= @project.deadline.to_formatted_s(:long) %></span></p>
+        <br>
+        <p class="profile_item">Creator: <span class="sub_profile_item"><%= @project.creator.to_s %></span></p>
+        <br>
+        <h1 class="profile_item">Current Artists:</h1>
+        <% if @project.artists.empty? == false%>
+            <% @project.artists.each do |artist|%> 
+                <li class="sub_profile_item"><%= link_to artist.to_s, artist_path(artist)%> </li>
+            <% end %>
+        <% elsif @current_creator && @current_creator.id == project.creator.id %>
+            <h5><%=link_to "Find artists for this project", artists_path %> </h5>
+        <% else %>
+            <p>There are no artists for this project yet<p>
+        <% end %>
+        <br> 
+
+        <h1 class="profile_item">Remaining Specialties Needed:</h1>
+        <ul>
+            <% @project.project_specialties.each do |ps|%>
+                <li class="sub_profile_item"><%= ps.specialty.name %>
+                <%= button_to "Remove", project_specialty_path(ps), method: :delete, class:"btn btn-default btn-primary btn-lg" %> 
+                </li>
+            <% end %>
+        </ul>
+
+        <% if @current_creator %>
+            <% if @current_creator.id == @project.creator_id %>
+                <%= button_to "Edit Poject", edit_project_path(@project), method: :get, class:"btn btn-default btn-primary btn-lg" %>
+                <br>
+                <%= button_to "Delete Project", project_path(@project), method: :delete, class:"btn btn-default btn-primary btn-lg" %> 
+            <% end %>
+        <% end %>
+        </div>
+    </div>
+</div>

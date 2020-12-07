@@ -1,23 +1,24 @@
-<div class="container">
-    <div class="row">
-    <h1>Artists Index</h1>
-    </div>
-</div>
-
-<div class="container">
+<div class="container rounded bg-dark text-white">
+    <br>
     <div class="row">
         <div class="col">
-        <h4>Search by Rate: </h4>
+        <h1>Artists Index</h1>
+        </div>  
+    </div>
+    <div class="row">
+        <div class="col">
+        <h2>Search by Rate: </h2>
         <%= form_tag(artists_path, method: :get) do %>
-            <%= text_field_tag(:search_by_rate, params[:search_by_rate]) %>
-            <%= submit_tag ("Search"), class: "btn btn-default btn-primary"  %>
-        <% end %>  
-            <%= button_to "Clear this search", artists_path, method: :get, class: "btn btn-default btn-primary" %> 
+            <h3 style="color:black"><%= text_field_tag(:search_by_rate, params[:search_by_rate]) %></h3>
+            <br>
+            <%= submit_tag ("Search"), class: "btn btn-default btn-primary btn-lg"  %>
+        <% end %>   
+        <%= button_to "Clear this search", artists_path, method: :get, class: "btn btn-default btn-primary btn-lg" %> 
         </div>
         <% @columns.each do |col| %>
             <div class="col">
             <% col.each do |artist| %>
-                <h4><%= link_to artist.to_s, artist_path(artist) %></h4>
+                <h1 class="index_item"><%= link_to artist.to_s, artist_path(artist) %></h1>
                 <img alt="thumbnails" src=<%=artist.profile_picture%> class="img-thumbnail">
                 <br>
                 <li class="index_item">Specialties:</li> 
