@@ -10,7 +10,7 @@
         <br>
         <p class="profile_item">Deadline: <span class="sub_profile_item"><%= @project.deadline.to_formatted_s(:long) %></span></p>
         <br>
-        <p class="profile_item">Creator: <span class="sub_profile_item"><%= @project.creator.to_s %></span></p>
+        <p class="profile_item">Creator: <span class="sub_profile_item"><%= link_to @project.creator.to_s, creator_path(@project.creator) %></span></p>
         <br>
         <h1 class="profile_item">Current Artists:</h1>
         <% if @project.artists.empty? == false%>

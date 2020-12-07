@@ -12,7 +12,8 @@
             <h3 style="color:black"><%= text_field_tag(:search_by_rate, params[:search_by_rate]) %></h3>
             <br>
             <%= submit_tag ("Search"), class: "btn btn-default btn-primary btn-lg"  %>
-        <% end %>   
+        <% end %> 
+        <br>  
         <%= button_to "Clear this search", artists_path, method: :get, class: "btn btn-default btn-primary btn-lg" %> 
         </div>
         <% @columns.each do |col| %>

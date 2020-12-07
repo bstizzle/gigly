@@ -54,3 +54,22 @@
 .show_column {
   padding: 0px 50px 0px 50px
 }
+
+.title {
+  font-family: Impact, Charcoal, sans-serif;
+  font-size: 40px;
+  letter-spacing: 10px;
+  word-spacing: 2px;
+  color: #000000;
+  font-weight: 700;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: uppercase;
+  text-align: center;
+} 
+
+body {
+  background-image: url("https://scx2.b-cdn.net/gfx/news/hires/2016/578650fe544c4.jpg");
+  
+}
