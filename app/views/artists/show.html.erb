@@ -1,4 +1,5 @@
-<div class="container">
+<div class="container rounded bg-dark text-white">
+<br>
   <div class="row">
     <div class="show_column">
       <p class="profile_item"><%=@artist.to_s%> </p> 
@@ -6,9 +7,9 @@
       <br>
       <br>
       <% if cookies[:creator_id] %>
-        <%= button_to "Hire Artist", new_project_artist_path, method: :get, class: "btn btn-default btn-primary" %>
+        <%= button_to "Hire Artist", new_project_artist_path, method: :get, class: "btn btn-default btn-primary btn-lg" %>
         <br>
-        <%= button_to "Contact",  new_project_artist_path, method: :get, class: "btn btn-default btn-primary"%>
+        <%= button_to "Contact",  new_project_artist_path, method: :get, class: "btn btn-default btn-primary btn-lg"%>
         <br>
       <% end %>
       <br>
@@ -16,7 +17,7 @@
         <% if @current_artist.id == @artist.id %>
           <%= button_to "Edit Profile", edit_artist_path(@artist), method: :get %>
           <br>
-          <%= button_to "Delete Profile", artist_path(@artist), method: :delete, class: "btn btn-default btn-primary"%>
+          <%= button_to "Delete Profile", artist_path(@artist), method: :delete, class: "btn btn-default btn-primary btn-lg"%>
           <br>
           <br>
         <% end %>
