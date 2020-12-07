@@ -22,7 +22,7 @@
       <% end %>
     </div>
     <div class="show_column">
-      <p class="profile_item">My Open Projects</p>
+      <p class="profile_item">My Upcoming Projects</p>
       <% @creator.projects.each do |project|%>
       <p class="sub_profile_item"> <%= link_to project.name, project_path(project)%></p>
       <% end %>

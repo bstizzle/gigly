@@ -19,7 +19,7 @@
 
 
 .index_item {
-  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
   font-size: 1.25vw;
   font-weight: 400;
 }
@@ -41,7 +41,7 @@
 }
 
 .profile_item {
-  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
   font-size: 1.75vw;
   font-weight: 400;
 }
@@ -60,16 +60,23 @@
   font-size: 40px;
   letter-spacing: 10px;
   word-spacing: 2px;
-  color: #000000;
+  color: white;
   font-weight: 700;
   text-decoration: none;
   font-style: normal;
   font-variant: normal;
   text-transform: uppercase;
   text-align: center;
+  background-image: url("https://scx2.b-cdn.net/gfx/news/hires/2016/578650fe544c4.jpg");
+  background-size: contain;
 } 
 
 body {
-  background-image: url("https://scx2.b-cdn.net/gfx/news/hires/2016/578650fe544c4.jpg");
+  background-image: linear-gradient(darkblue, purple, darkblue);
+  height: 100vh;
   
+}
+
+.errors {
+  color: white;
 }

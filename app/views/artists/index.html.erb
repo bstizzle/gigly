@@ -24,6 +24,7 @@
                 <br>
                 <li class="index_item">Specialties:</li> 
                     <ul><% artist.specialties.each do |specialty| %>
+                    
                         <li class="sub_index_item"><%= specialty.name %></li>
                     <% end %></ul>
                 <li class="index_item">Location: <%= artist.location %> </li>

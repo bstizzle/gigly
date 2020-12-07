@@ -17,7 +17,7 @@
             <% @project.artists.each do |artist|%> 
                 <li class="sub_profile_item"><%= link_to artist.to_s, artist_path(artist)%> </li>
             <% end %>
-        <% elsif @current_creator && @current_creator.id == project.creator.id %>
+        <% elsif @current_creator && @current_creator.id == @project.creator.id %>
             <h5><%=link_to "Find artists for this project", artists_path %> </h5>
         <% else %>
             <p>There are no artists for this project yet<p>

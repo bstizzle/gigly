@@ -21,6 +21,7 @@
             <div class="col">
             <% col.each do |project| %>
                 <h1 class="index_item"><%= link_to project.name, project_path(project) %></h1>
+                <br>
                 <li class="sub_index_item">Location: <%= project.location %></li>
                 <li class="sub_index_item">Deadline: <%= project.deadline.to_formatted_s(:long) %></li>
                 <li class="sub_index_item">Creator: <%= project.creator %></li>
