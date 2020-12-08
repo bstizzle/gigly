@@ -4,33 +4,19 @@ This README would normally document whatever steps are necessary to get the
 application up and running.
 
 
-Done:
-1. Creator show page, new page, edit page
-2. Artist new page, edit page
-3. Project new page, edit page, show page, index page
-4. ArtistSpecialty new page 
-5. validations/error feedback for artist, creator, artist_specialty, and project_artist
-6. logout button/path
-7. Only shows you edit profile, logout buttons, and create new project buttons if user is on their own show page 
-8. If NOT logged in, shows no buttons, but you can still view the pages
-9. Authentication & Authorization
-10.  Currently you have to add a password in order to edit your creator. Fixed! 
-11. Automatically add creator id to new project form 
-12. Automatically add project name to new project form 
-13. Add a validation to project deadline that makes it have to be x number of days in the future
-14. Add a Nav bar to the top of every screen 
-15. Search Button  for Artists Index and Projects Index 
-16. You can only edit a project if it's yours 
-17. Building out project artists -- How a project can have artists 
-18. Add a "contact" button to a show page if you are not the current user but are signed in 
-19. Add a picture column for artist in the migrations 
-20. Styling and CSS
+Welcome to Gigly.io.  
 
-Still to do: 
+Gigly.io is an interactive web application where project creators and artists come together to collaborate on awesome projects.  
+Visitors of the site (potential new creators and artists) can browse and search the site to see the available artists and projects.
+If they want to create or be part of a project a user would then need to sign up and login to access the website's services.  As a
+creator user, you should be able to sign up and login using a unique email.  Once you are logged in to the website, you can then
+edit your profile (name, password, bio, profile picture) and create projects.  There is a delete option, but we hope all our members
+stay with us for the long run as our service is free.  Once a creator user creates a project, then they can proceed to search
+function to browse, contact and hire artists for their project(s).  Upon completion of the project, the creator will then be allowed 
+to rate and review the artists of their projects.  Hopefully in the near future, we can implement the option for a user sign in as a creator 
+or an artist. 
+
+Happy gigging to all our members. 
 
 
-Problems: 
-
-Artist Side Deliverables: 
-1. Allow an artist to accept or reject a job
-
+Brought to you by Ben, Ekene and Johnson. 
