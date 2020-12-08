@@ -44,7 +44,7 @@ class CreatorsController < ApplicationController
 
     def destroy
         @creator.destroy
-        redirect_to creators_path
+        redirect_to logout_path
     end
 
     

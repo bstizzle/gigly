@@ -6,7 +6,7 @@
       <img alt= "profile pic" src=<%=@artist.profile_picture%>>
       <br>
       <br>
-      <% if cookies[:creator_id] %>
+      <% if @current_creator %>
         <%= button_to "Hire Artist", new_project_artist_path, method: :get, class: "btn btn-default btn-primary btn-lg" %>
         <br>
         <%= button_to "Contact",  new_project_artist_path, method: :get, class: "btn btn-default btn-primary btn-lg"%>
@@ -35,8 +35,10 @@
         <li class="sub_profile_item"><%= spec.name %></li>
       <% end %>
       <br>
+      <% if @artist.average_rating > 0 %> 
       <p class="profile_item">Average Rating: <%=link_to @artist.average_rating, review_path%> </p> 
-      
+      <% end %>
+
       <% if @current_creator %>
           <% if @current_creator.projects.any? do |proj| %>
               <% proj.project_artists.any? do |pa| %>
